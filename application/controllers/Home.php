@@ -14,6 +14,8 @@ class Home extends CI_Controller
     public function index()
     {
         $x['data'] = $this->m_pemain->getAll();
+        var_dump($x);
+        die;
         $this->load->view('v_home', $x);
     }
 }
