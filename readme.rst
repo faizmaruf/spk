@@ -12,6 +12,3 @@ FOLLOW MY SOCIAL MEDIA
 -  `Instagram <https://www.instagram.com/faizmaruf_/>`_
 -  `Dribble <https://dribbble.com/faizmaruf>`_
 
-**************************
-Changelog and New Features
-**************************
