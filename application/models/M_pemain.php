@@ -7,4 +7,12 @@ class M_pemain extends CI_Model
         $hsl = $this->db->query("SELECT * FROM pemain")->result_array();
         return $hsl;
     }
+    function add($data)
+    {
+        $this->db->insert('pemain', $data);
+    }
+    function delete($id)
+    {
+        $this->db->delete('pemain', array('id' => $id));
+    }
 }
