@@ -11,6 +11,11 @@ class M_pemain extends CI_Model
     {
         $this->db->insert('pemain', $data);
     }
+    function update($where, $data)
+    {
+        $this->db->where('id', $where);
+        $this->db->update('pemain', $data);
+    }
     function delete($id)
     {
         $this->db->delete('pemain', array('id' => $id));

@@ -20,6 +20,7 @@
 
 <body>
     <div class="container ">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambah">tambah</button>
         <div class="d-flex w-100 h-100">
 
             <table class="table tbl">
@@ -27,6 +28,7 @@
                     <th>No</th>
                     <th>Nama</th>
                     <th>Posisi</th>
+                    <th>Fisik</th>
                     <th>Passing</th>
                     <th>Dribbling</th>
                     <th>Shotting</th>
@@ -41,6 +43,7 @@
                         <td><?= $i; ?></td>
                         <td><?= $d["nama"]; ?></td>
                         <td><?= $d["posisi"]; ?></td>
+                        <td><?= $d["fisik"]; ?></td>
                         <td><?= $d["passing"]; ?></td>
                         <td><?= $d["dribbling"]; ?></td>
                         <td><?= $d["shooting"]; ?></td>
@@ -48,8 +51,8 @@
                         <td><?= $d["kognitif"]; ?></td>
                         <td>
 
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambah">tambah</button>
-                            <a href="#" class="btn btn-info editmodal" data-toggle="modal" id="editbtn" data-id="<?= $d['id']; ?>" data-nama="<?= $d['nama']; ?>" data-posisi="<?= $d['posisi']; ?>" data-passing="<?= $d['passing']; ?>" data-dribbling="<?= $d['dribbling']; ?>" data-shooting="<?= $d['shooting']; ?>" data-heading="<?= $d['heading']; ?>" data-kognitif="<?= $d['kognitif']; ?>">edit</a>
+
+                            <a href="#" class="btn btn-info editmodal" data-toggle="modal" id="editbtn" data-id="<?= $d['id']; ?>" data-nama="<?= $d['nama']; ?>" data-posisi="<?= $d['posisi']; ?>" data-fisik="<?= $d['fisik']; ?>" data-passing="<?= $d['passing']; ?>" data-dribbling="<?= $d['dribbling']; ?>" data-shooting="<?= $d['shooting']; ?>" data-heading="<?= $d['heading']; ?>" data-kognitif="<?= $d['kognitif']; ?>">edit</a>
                             <a href="<?php echo site_url() . 'Home/delete' ?>?id=<?= $d['id']; ?>" type="button" class="btn btn-danger">hapus</a>
                         </td>
                     </tr>
@@ -81,10 +84,14 @@
                         <div>
                             <label for="posisi"></label>
                             <div class="form-control">
-                                <input type="radio" name="xposisi" id="flank" value="Flank" required>Flank
-                                <input type="radio" name="xposisi" id="pivot" value="Pivot" required>Pivot
-                                <input type="radio" name="xposisi" id="anchor" value="Anchor" required>Anchor
+                                <input type="radio" name="xposisi" id="posisi" value="Flank" required>Flank
+                                <input type="radio" name="xposisi" id="posisi" value="Pivot" required>Pivot
+                                <input type="radio" name="xposisi" id="posisi" value="Anchor" required>Anchor
                             </div>
+                        </div>
+                        <div>
+                            <label for="fisik"></label>
+                            <input class="form-control" name="xfisik" placeholder="Fisik" id="fisik" required>
                         </div>
                         <div>
                             <label for="passing"></label>
@@ -138,7 +145,7 @@
                 <div class="modal-body">
                     Modal body..
                     <!-- coding disini -->
-                    <form action="<?= site_url('Home/Add'); ?>" method="post" enctype="multipart/form-data">
+                    <form action="<?= site_url('Home/Update'); ?>" method="post" enctype="multipart/form-data">
                         <div>
                             <label for="nama"></label>
                             <input class="form-control nama" name="xname" placeholder="Nama Lengkap" id="nama" required>
@@ -146,10 +153,14 @@
                         <div>
                             <label for="posisi"></label>
                             <div class="form-control posisi">
-                                <input type="radio" name="xposisi" id="posisi" value="Flank" required>Flank
-                                <input type="radio" name="xposisi" id="posisi" value="Pivot" required>Pivot
-                                <input type="radio" name="xposisi" id="posisi" value="Anchor" required>Anchor
+                                <input type="radio" class="posisi" name="xposisi" id="posisi" value="Flank" required>Flank
+                                <input type="radio" class="posisi" name="xposisi" id="posisi" value="Pivot" required>Pivot
+                                <input type="radio" class="posisi" name="xposisi" id="posisi" value="Anchor" required>Anchor
                             </div>
+                        </div>
+                        <div>
+                            <label for="fisik"></label>
+                            <input class="form-control fisik" name="xfisik" placeholder="Fisik" id="fisik" required>
                         </div>
                         <div>
                             <label for="passing"></label>
@@ -180,33 +191,12 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Tambah</button>
+                    <input class="id" type="hidden" name="xid" id="id">
+                    <button type="submit" class="btn btn-primary">Update</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                     </form>
                 </div>
 
-            </div>
-        </div>
-    </div>
-
-    <!-- The Modal edit -->
-    <!-- Modal -->
-    <div class="modal fade" id="editModall" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
             </div>
         </div>
     </div>
@@ -218,24 +208,32 @@
                 const id = $(this).data('id');
                 const nama = $(this).data('nama');
                 const posisi = $(this).data('posisi');
+                const fisik = $(this).data('fisik');
                 const passing = $(this).data('passing');
                 const dribbling = $(this).data('dribbling');
                 const shooting = $(this).data('shooting');
                 const heading = $(this).data('heading');
                 const kognitif = $(this).data('kognitif');
                 // // set data form edit
-                // $('.id').val(id);
+                $('.id').val(id);
                 $('.nama').val(nama);
                 // $('.posisi').val(posisi).trigger('change');
-                $('.posisi').val(posisi).prop('checked', true);
+                // $('.posisi' + posisi).prop('checked', true);
+                // $('.posisi').val(posisi).prop('checked', posisi);
+                // $('.posisi').val(posisi).prop('checked', true);
+                // $('.posisi').val(posisi).attr('checked', true);
+                // $('.posisi').val(posisi).prop('checked', posisi);
+                // $('.posisi').prop('checked');
                 // $('.posisi').val(posisi).click();
+                // $(input[xposisi][posisi]).prop('checked', true);
+                $('.fisik').val(fisik);
                 $('.passing').val(passing);
                 $('.dribbling').val(dribbling);
                 $('.shooting').val(shooting);
                 $('.heading').val(heading);
                 $('.kognitif').val(kognitif);
                 // call modal edit
-                console.log(posisi);
+                console.log(fisik);
                 $('#editModal').modal("show");
             });
         });
