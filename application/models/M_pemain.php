@@ -20,4 +20,8 @@ class M_pemain extends CI_Model
     {
         $this->db->delete('pemain', array('id' => $id));
     }
+    public function insert_multiple($data)
+	{
+		$this->db->insert_batch('pemain', $data);
+	}
 }
