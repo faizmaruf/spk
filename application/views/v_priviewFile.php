@@ -88,7 +88,7 @@
                 // <-- END
 
                 // Ambil data value yang telah di ambil dan dimasukkan ke variabel $get
-                //$id = $get[0]; // Ambil data id
+                $id = $get[0]; // Ambil data id
                 $nama = $get[1]; // Ambil data nama
                 $posisi = $get[2]; // Ambil data Posisi
                 $fisik = $get[3]; // Ambil data email
@@ -108,7 +108,7 @@
                 // Jadi dilewat saja, tidak usah diimport
                 if ($numrow > 1) {
                     // Validasi apakah semua data telah diisi
-                   // $id_td = (!empty($id)) ? "" : " style='background: #E07171;'"; // Jika id kosong, beri warna merah
+                    $id_td = (!empty($id)) ? "" : " style='background: #E07171;'"; // Jika id kosong, beri warna merah
                     $nama_td = (!empty($nama)) ? "" : " style='background: #E07171;'"; // Jika Nama kosong, beri warna merah
                     $posisi_td = (!empty($posisi)) ? "" : " style='background: #E07171;'"; // Jika posisi kosong, beri warna merah
                     $fisik_td = (!empty($fisik)) ? "" : " style='background: #E07171;'"; // Jika fisik, beri warna merah
@@ -124,7 +124,7 @@
                     }
 
                     echo "<tr>";
-                 //   echo "<td" . $id_td . ">" . $nim . "</td>";
+                    echo "<td" . $id_td . ">" . $nim . "</td>";
                     echo "<td" . $nama_td . ">" . $nama . "</td>";
                     echo "<td" . $posisi_td . ">" . $prodi . "</td>";
                     echo "<td" . $fisik_td . ">" . $fisik . "</td>";

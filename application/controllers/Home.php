@@ -113,9 +113,9 @@ class Home extends CI_Controller
 
        $this->upload->initialize($config); // Load konfigurasi uploadnya
 
-       $r=$this->upload->do_upload('file');
-       var_dump($r);
-       die;
+    //    $r=$this->upload->do_upload('file');
+    //    var_dump($r);
+    //    die;
         if ($this->upload->do_upload('file')) { // Lakukan upload dan Cek jika proses upload berhasil
             // Jika berhasil :
             $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');
