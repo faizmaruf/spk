@@ -58,18 +58,17 @@
 		<tr>
 			<tr>
                     <th>No</th>
-                    <th>id</th>
                     <th>Nama</th>
                     <th>Posisi</th>
-                    <th>Fisik</th>
-                    <th>Passing</th>
+                    <th>Fisik</th>  
+                  <th>Passing</th>
                     <th>Dribbling</th>
                     <th>Shotting</th>
                     <th>Heading</th>
                     <th>Kognitif</th>
                 </tr>
 		</tr>";
-
+            $nomor=0;
             $numrow = 1;
             $kosong = 0;
 
@@ -88,19 +87,19 @@
                 // <-- END
 
                 // Ambil data value yang telah di ambil dan dimasukkan ke variabel $get
-                $id = $get[0]; // Ambil data id
-                $nama = $get[1]; // Ambil data nama
-                $posisi = $get[2]; // Ambil data Posisi
-                $fisik = $get[3]; // Ambil data email
-                $passing = $get[4]; // Ambil data passing
-                $dribbling = $get[5]; // Ambil data dribbling
-                $shooting = $get[6]; // Ambil data shotting
-                $heading = $get[7]; // Ambil data heading
-                $kognitif = $get[8]; // Ambil data kognitif
+                $no = $nomor; // Ambil data no
+                $nama = $get[0]; // Ambil data nama
+                $posisi = $get[1]; // Ambil data Posisi
+                $fisik = $get[2]; // Ambil data email
+                $passing = $get[3]; // Ambil data passing
+                $dribbling = $get[4]; // Ambil data dribbling
+                $shooting = $get[5]; // Ambil data shotting
+                $heading = $get[6]; // Ambil data heading
+                $kognitif = $get[7]; // Ambil data kognitif
                 
 
                 // Cek jika semua data tidak diisi
-                if ($id == "" && $nama == "" && $posisi == "" && $fisik == ""&& $passing == ""&& $dribbling == ""&& $shotting == ""&& $heading == ""&& $kognitif == "")
+                if ($nama == "" && $posisi == "" && $fisik == ""&& $passing == ""&& $dribbling == ""&& $shotting == ""&& $heading == ""&& $kognitif == "")
                     continue; // Lewat data pada baris ini (masuk ke looping selanjutnya / baris selanjutnya)
 
                 // Cek $numrow apakah lebih dari 1
@@ -108,7 +107,7 @@
                 // Jadi dilewat saja, tidak usah diimport
                 if ($numrow > 1) {
                     // Validasi apakah semua data telah diisi
-                    $id_td = (!empty($id)) ? "" : " style='background: #E07171;'"; // Jika id kosong, beri warna merah
+                   
                     $nama_td = (!empty($nama)) ? "" : " style='background: #E07171;'"; // Jika Nama kosong, beri warna merah
                     $posisi_td = (!empty($posisi)) ? "" : " style='background: #E07171;'"; // Jika posisi kosong, beri warna merah
                     $fisik_td = (!empty($fisik)) ? "" : " style='background: #E07171;'"; // Jika fisik, beri warna merah
@@ -119,14 +118,14 @@
                     $kognitif_td = (!empty($kognitif)) ? "" : " style='background: #E07171;'"; // Jika kognitif, beri warna merah
 
                     // Jika salah satu data ada yang kosong
-                    if ($id == "" && $nama == "" && $posisi == "" && $fisik == ""&& $passing == ""&& $dribbling == ""&& $shotting == ""&& $heading == ""&& $kognitif == "") {
+                    if ( $nama == "" && $posisi == "" && $fisik == ""&& $passing == ""&& $dribbling == ""&& $shotting == ""&& $heading == ""&& $kognitif == "") {
                         $kosong++; // Tambah 1 variabel $kosong
                     }
 
                     echo "<tr>";
-                    echo "<td" . $id_td . ">" . $nim . "</td>";
+                    echo "<td> " . $no . "</td>";
                     echo "<td" . $nama_td . ">" . $nama . "</td>";
-                    echo "<td" . $posisi_td . ">" . $prodi . "</td>";
+                    echo "<td" . $posisi_td . ">" . $posisi . "</td>";
                     echo "<td" . $fisik_td . ">" . $fisik . "</td>";
                     echo "<td" . $passing_td . ">" . $passing . "</td>";
                     echo "<td" . $dribbling_td . ">" . $dribbling . "</td>";
@@ -137,6 +136,7 @@
                 }
 
                 $numrow++; // Tambah 1 setiap kali looping
+                $nomor++; // Tambah 1 setiap kali looping
             }
 
             echo "</table>";

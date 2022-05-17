@@ -66,7 +66,7 @@ class Home extends CI_Controller
         // var_dump($data);
         // die;
         $this->m_pemain->update($id, $data);
-        redirect('Home');
+     redirect('Home');
     }
     public function Delete()
     {
@@ -77,7 +77,7 @@ class Home extends CI_Controller
     public function form()
     {
         $data = array(); // Buat variabel $data sebagai array
-       
+
         if (isset($_POST['preview'])) { // Jika user menekan tombol Preview pada form
             // lakukan upload file dengan memanggil private function upload dibawah
             $upload = $this->_uploadFile($this->filename);
@@ -95,6 +95,9 @@ class Home extends CI_Controller
                 $data['sheet'] = $sheet;
             } else { // Jika proses upload gagal
                 $data['upload_error'] = $upload['error']; // Ambil pesan error uploadnya untuk dikirim ke file form dan ditampilkan
+                // $r="faiz ganteng";
+                // var_dump($r);
+                // die;
             }
         }
 
@@ -111,11 +114,11 @@ class Home extends CI_Controller
         $config['overwrite'] = true;
         $config['file_name'] = $filename;
 
-       $this->upload->initialize($config); // Load konfigurasi uploadnya
+        $this->upload->initialize($config); // Load konfigurasi uploadnya
 
-    //    $r=$this->upload->do_upload('file');
-    //    var_dump($r);
-    //    die;
+        //    $r=$this->upload->do_upload('file');
+        //    var_dump($r);
+        //    die;
         if ($this->upload->do_upload('file')) { // Lakukan upload dan Cek jika proses upload berhasil
             // Jika berhasil :
             $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');
@@ -158,9 +161,9 @@ class Home extends CI_Controller
                 // <-- END
 
                 // Ambil data value yang telah di ambil dan dimasukkan ke variabel $get
-                
 
-               // $id = $get[0]; // Ambil data id
+
+                // $id = $get[0]; // Ambil data id
                 $nama = $get[1]; // Ambil data nama
                 $posisi = $get[2]; // Ambil data Posisi
                 $fisik = $get[3]; // Ambil data email
@@ -170,7 +173,7 @@ class Home extends CI_Controller
                 $heading = $get[7]; // Ambil data heading
                 $kognitif = $get[8]; // Ambil data kognitif
 
-               
+
 
                 array_push($data, [
                     'nama' => $nama,
