@@ -44,7 +44,7 @@
             }
 
             // Buat sebuah tag form untuk proses import data ke database
-            echo "<form method='post' action='" . base_url("home/import") . "'>";
+            echo "<form method='post' action='" . base_url("Home/import") . "'>";
 
             // Buat sebuah div untuk alert validasi kosong
             echo "<div style='color: red;' id='kosong'>
@@ -87,15 +87,15 @@
                 // <-- END
 
                 // Ambil data value yang telah di ambil dan dimasukkan ke variabel $get
-                $no = $nomor; // Ambil data no
-                $nama = $get[0]; // Ambil data nama
-                $posisi = $get[1]; // Ambil data Posisi
-                $fisik = $get[2]; // Ambil data email
-                $passing = $get[3]; // Ambil data passing
-                $dribbling = $get[4]; // Ambil data dribbling
-                $shooting = $get[5]; // Ambil data shotting
-                $heading = $get[6]; // Ambil data heading
-                $kognitif = $get[7]; // Ambil data kognitif
+                $no = $nomor; 
+                $nama = $get[0]; 
+                $posisi = $get[1]; 
+                $fisik = $get[2]; 
+                $passing = $get[3]; 
+                $dribbling = $get[4]; 
+                $shooting = $get[5];
+                $heading = $get[6]; 
+                $kognitif = $get[7]; 
                 
 
                 // Cek jika semua data tidak diisi
