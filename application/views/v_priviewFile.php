@@ -86,7 +86,7 @@
                 }
                 // <-- END
 
-                // Ambil data value yang telah di ambil dan dimasukkan ke variabel $get
+               
                 $no = $nomor; 
                 $nama = $get[0]; 
                 $posisi = $get[1]; 

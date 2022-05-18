@@ -22,6 +22,7 @@
     <div class="container ">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambah">tambah</button>
         <a href="<?= base_url('Home/form') ?>" class="btn btn-secondary">import csv</a>
+        <a href="<?= base_url('SPK') ?>" class="btn btn-primary">Komputasi AHP dan TOPSIS</a>
         <div class="d-flex w-100 h-100">
 
             <table class="table tbl">
