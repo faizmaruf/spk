@@ -14,18 +14,30 @@ class SPK extends CI_Controller
 
     public function index()
     {
-        $x['data'] = $this->m_pemain->getAllData();
-        $p=$x['data'];
-
+        $x['data'] = $this->m_pemain->getAllValue();
+        $data=$x['data'];
+       
       
+        $W=$this->_weightValue();
         
-        $this->_weightValue();
+        
+        echo "<br> <br>";
+
+        $topsis = $this->Topsis($W,$data);
+        print_r($topsis);
+
+         echo "<br> <br>";
+        die;
+        
+        
+        
         // $this->load->view('v_home', $x);
     }
    
 
-   
-     function _weightValue(){
+    ////////////////////////////////////////////
+    // Algoritma AHP
+    public function _weightValue(){
         //variable tabel perbandingan kriteria
         $jumlah[]=0;
         $q=0;
@@ -37,81 +49,76 @@ class SPK extends CI_Controller
             [0.143,0.111,0.143,0.143,1.000,0.333],
             [0.143,0.111,0.143,0.143,3.000,1.000],
         ];
-       for ($row = 0; $row < 6; $row++) {
-		echo "<tr>";
-		for ($col = 0; $col < 6; $col++) {
-			echo "<td>".$tblPerbandiangan[$row][$col]."</td>";
-		}
-        
-	    echo "</tr>";
-        echo "<br>";
-        
-        }
-        echo "<br>";echo "<br>";echo "<br>";echo "<br>";
+    
 
         //jumlah nilai dari tiap kolom
         $pembagi =$this->_getSumCol($tblPerbandiangan);
-        print_r($pembagi);
+        // print_r($pembagi);
         
-         echo "<br>";echo "<br>";
+        //  echo "<br>";echo "<br>";
 
         //nilai eigen atau normalisasi
-        $normalisasi = $this->Normalisasi($tblPerbandiangan,$pembagi);  
-        print_r($normalisasi);
+        $normalisasi = $this->NormalisasiAHP($tblPerbandiangan,$pembagi);  
+        // print_r($normalisasi);
 
-         echo "<br>";echo "<br>";
+        //  echo "<br>";echo "<br>";
          //nilai bobot
         $nilaibobot = $this->weightValue($normalisasi);  
-        print_r($nilaibobot);
+        // print_r($nilaibobot);
 
-        echo "<br>";echo "<br>";
+        // echo "<br>";echo "<br>";
 
 
         //cek kosinsistensi
         $cek=$this->_chehkCosistency($pembagi,$nilaibobot);
-        var_dump($cek);
-    die;
+        // var_dump($cek);
+
+        ////////////////////////////////////////////
+        //Topsis
+        return $nilaibobot;
+
     }
 
 
     
 
     private function _getSumCol($data){
-        $array_length = count($data);
-        // $p=[0,0,0,0,0,0];
-        for ($i=0; $i < $array_length; $i++) { 
+        $array_lengthRow = count($data);
+        $array_lengthCol = count($data[0]);
+        for ($i=0; $i < $array_lengthCol; $i++) { 
             $p[$i]=0;
         }
+        
         $i=0;
-        for ($row = 0; $row < $array_length; $row++) {
-            for ($col = 0; $col < $array_length; $col++) {
+        for ($row = 0; $row < $array_lengthRow; $row++) {
+            $i=0;
+            for ($col = 0; $col < $array_lengthCol; $col++) {
                 $p[$i]=$p[$i]+$data[$row][$col];
                 $i++;
 		    }
-            $i=0;
         }
         return $p;
     }
     private function _getSumRow($data){
-        $array_length = count($data);
-        // $p=[0,0,0,0,0,0];
-        for ($i=0; $i < $array_length; $i++) { 
+        $array_lengthRow = count($data);
+        $array_lengthCol = count($data[0]);
+        for ($i=0; $i < $array_lengthCol; $i++) { 
             $p[$i]=0;
         }
         $i=0;
-        for ($row = 0; $row < $array_length; $row++) {
-            for ($col = 0; $col < $array_length; $col++) {
+        for ($row = 0; $row < $array_lengthRow; $row++) {
+            for ($col = 0; $col < $array_lengthCol; $col++) {
                 $p[$i]=$p[$i]+$data[$row][$col];
 		    }
             $i++;
         }
         return $p;
     }
-    function Normalisasi($data,$pembagi)
+    function NormalisasiAHP($data,$pembagi)
     {
-        
-         for ($row = 0; $row < 6; $row++) {
-            for ($col = 0; $col < 6; $col++) {
+        $array_length = count($data);
+         for ($row = 0; $row < $array_length; $row++) {
+            for ($col = 0; $col < $array_length; $col++) {
                $p[$row][$col]=($data[$row][$col])/($pembagi[$col]);
 		    }
         }
@@ -120,7 +127,6 @@ class SPK extends CI_Controller
     function weightValue($data)
     {   
         $array_length = count($data);
-        // $p=[0,0,0,0,0,0];
         for ($i=0; $i < $array_length; $i++) { 
             $p[$i]=0;
         }
@@ -150,5 +156,49 @@ class SPK extends CI_Controller
             return false;
         }
 
+    }
+    ////////////////////////////////////////////
+    // Algoritma TOPSIS
+    public function Topsis($W,$data)
+    {
+        $x=$this->_normalisasiData($data);
+        return $x;
+    }
+    private function _normalisasiData($data)
+    {
+        $array_lengthRow = count($data);
+        $array_lengthCol = count($data[0]);
+       
+        for ($row = 0; $row < $array_lengthRow; $row++) {
+            for ($col = 0; $col < $array_lengthCol; $col++) {
+                $Xij= (array_values($data[$row]));
+                $Xij2[$row][$col]=pow($Xij[$col],2); 
+		    } 
+        }
+        $sigma=$this->_getSumCol($Xij2);
+        $akarsigma = $this->_akarSigma($sigma);
+        return$this->_normaliasiTopsis($data,$akarsigma);
+ 
+    } 
+    private function _akarSigma($data)
+    {
+        $array_length = count($data);
+        for ($i = 0; $i < $array_length; $i++) {
+           $p[$i]=sqrt($data[$i]);
+        }
+       return $p;
+    }
+    private function _normaliasiTopsis($data,$akarsigma)
+    {   
+        $array_lengthRow = count($data);
+        $array_lengthCol = count($data[0]);
+       
+        for ($row = 0; $row < $array_lengthRow; $row++) {
+            for ($col = 0; $col < $array_lengthCol; $col++) {
+                $data1= (array_values($data[$row]));
+                $Rij[$row][$col] = ($data1[$col])/($akarsigma[$col]);
+		    } 
+        }
+       return $Rij;
     }
 }
