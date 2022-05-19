@@ -82,7 +82,7 @@ class SPK extends CI_Controller
 
     
 
-    private function _getSumCol($data){
+    public function _getSumCol($data){
         $array_lengthRow = count($data);
         $array_lengthCol = count($data[0]);
         for ($i=0; $i < $array_lengthCol; $i++) { 
@@ -99,9 +99,12 @@ class SPK extends CI_Controller
         }
         return $p;
     }
-    private function _getSumRow($data){
+    public function _getSumRow($data){
         $array_lengthRow = count($data);
         $array_lengthCol = count($data[0]);
+        // var_dump($array_lengthRow);
+        //  var_dump($array_lengthCol);
+        //  die;
         for ($i=0; $i < $array_lengthCol; $i++) { 
             $p[$i]=0;
         }
@@ -112,9 +115,11 @@ class SPK extends CI_Controller
 		    }
             $i++;
         }
+        var_dump($p);
+        die;
         return $p;
     }
-    function NormalisasiAHP($data,$pembagi)
+    private function NormalisasiAHP($data,$pembagi)
     {
         $array_length = count($data);
          for ($row = 0; $row < $array_length; $row++) {
@@ -124,7 +129,7 @@ class SPK extends CI_Controller
         }
         return $p;
     }
-    function weightValue($data)
+    private function weightValue($data)
     {   
         $array_length = count($data);
         for ($i=0; $i < $array_length; $i++) { 
@@ -174,12 +179,15 @@ class SPK extends CI_Controller
                 $yij[$row][$col] = ($rij1[$col])*($W[$col]);
 		    } 
         }
-        var_dump($this->_findMax($yij));
+        $A_plus=$this->_findMax($yij);
         echo "<br>";
         echo "<br>";
         echo "<br>";
         echo "<br>";
-        var_dump($this->_findMin($yij));
+        $A_minus=$this->_findMin($yij);
+       
+
+        $this->_DPlus($yij,$A_plus);
         die;
         return $yij;
     }
@@ -267,5 +275,21 @@ class SPK extends CI_Controller
         }
         
         return $p;
+    }
+    private function _DPlus($data,$yj)
+    {
+        $array_lengthRow = count($data);
+        $array_lengthCol = count($data[0]);
+       
+        for ($row = 0; $row < $array_lengthRow; $row++) {
+            for ($col = 0; $col < $array_lengthCol; $col++) {
+                $yij= (array_values($data[$row]));
+                $D[$row][$col] = pow((($yij[$col])-($yj[$col])),2);
+		    } 
+        }
+        //  var_dump($D);
+        // die;
+        return $this->_getSumRow($D);
+        // return $D_plus;
     }
 }
