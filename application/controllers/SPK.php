@@ -161,9 +161,30 @@ class SPK extends CI_Controller
     // Algoritma TOPSIS
     public function Topsis($W,$data)
     {
-        $x=$this->_normalisasiData($data);
-        return $x;
+        //Data dinormalisasi
+        $rij=$this->_normalisasiData($data);
+
+        //data normalisasi terbobot yij = wj*rij
+        $array_lengthRow = count($rij);
+        $array_lengthCol = count($rij[0]);
+       
+        for ($row = 0; $row < $array_lengthRow; $row++) {
+            for ($col = 0; $col < $array_lengthCol; $col++) {
+                $rij1= (array_values($rij[$row]));
+                $yij[$row][$col] = ($rij1[$col])*($W[$col]);
+		    } 
+        }
+        var_dump($this->_findMax($yij));
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
+        var_dump($this->_findMin($yij));
+        die;
+        return $yij;
     }
+
+
     private function _normalisasiData($data)
     {
         $array_lengthRow = count($data);
@@ -200,5 +221,51 @@ class SPK extends CI_Controller
 		    } 
         }
        return $Rij;
+    }
+    private function _findMax($data)
+    {
+        $array_lengthRow = count($data);
+        $array_lengthCol = count($data[0]);
+        for ($i=0; $i < $array_lengthCol; $i++) { 
+            $p[$i]=0;
+        }
+        
+        $i=0;
+        for ($row = 0; $row < $array_lengthRow; $row++) {
+            $i=0;
+            for ($col = 0; $col < $array_lengthCol; $col++) {
+                
+                $pembanding=0+$data[$row][$col];
+                if ($p[$i]<$pembanding) {
+                    $p[$i]=$data[$row][$col];
+                }
+                $i++;
+		    } 
+        }
+        
+        return $p;
+    }
+    private function _findMin($data)
+    {
+        $array_lengthRow = count($data);
+        $array_lengthCol = count($data[0]);
+        for ($i=0; $i < $array_lengthCol; $i++) { 
+            $p[$i]=1;
+        }
+        
+        $i=0;
+        for ($row = 0; $row < $array_lengthRow; $row++) {
+            $i=0;
+            for ($col = 0; $col < $array_lengthCol; $col++) {
+                
+                $pembanding=0+$data[$row][$col];
+                if ($p[$i]>$pembanding) {
+                    $p[$i]=$data[$row][$col];
+                }
+                $i++;
+		    } 
+        }
+        
+        return $p;
     }
 }
