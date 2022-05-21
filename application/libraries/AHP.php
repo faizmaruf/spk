@@ -1,8 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Ahp {
-
-    public function __construct(){
-        
+     
+    function __construct(){
+       
     }
 
 public function _weightValue(){
@@ -21,28 +21,21 @@ public function _weightValue(){
 
         //jumlah nilai dari tiap kolom
         $pembagi =$this->_getSumCol($tblPerbandiangan);
-        // print_r($pembagi);
-        
-        //  echo "<br>";echo "<br>";
-
-        //nilai eigen atau normalisasi
+        // var_dump($pembagi);
+        // die;
+        //nilai eigen/normalisasi
         $normalisasi = $this->NormalisasiAHP($tblPerbandiangan,$pembagi);  
-        // print_r($normalisasi);
-
-        //  echo "<br>";echo "<br>";
-         //nilai bobot
+        
         $nilaibobot = $this->weightValue($normalisasi);  
-        // print_r($nilaibobot);
-
-        // echo "<br>";echo "<br>";
+        // var_dump($nilaibobot);
+        // die;
+        
 
 
         //cek kosinsistensi
         $cek=$this->_chehkCosistency($pembagi,$nilaibobot);
         // var_dump($cek);
-
-        ////////////////////////////////////////////
-        //Topsis
+        // die;
         return $nilaibobot;
 
     }
@@ -68,19 +61,20 @@ public function _weightValue(){
     public function _getSumRow($data){
         $array_lengthRow = count($data);
         $array_lengthCol = count($data[0]);
-        
+        //  var_dump($data);
+        // die;
         for ($i=0; $i < $array_lengthCol; $i++) { 
             $p[$i]=0;
         }
         $i=0;
+        
         for ($row = 0; $row < $array_lengthRow; $row++) {
             for ($col = 0; $col < $array_lengthCol; $col++) {
                 $p[$i]=$p[$i]+$data[$row][$col];
 		    }
             $i++;
         }
-        var_dump($p);
-        die;
+       
         return $p;
     }
     public function NormalisasiAHP($data,$pembagi)
@@ -99,10 +93,13 @@ public function _weightValue(){
         for ($i=0; $i < $array_length; $i++) { 
             $p[$i]=0;
         }
-        $sum = $this->_getSumRow($data);
+        $data1 = $data;
+        $sum = $this->_getSumRow($data1);
         for ($i=0; $i < $array_length; $i++) { 
             $p[$i]=$sum[$i]/$array_length;
         }
+        // var_dump($p);
+        // die;
         return $p;
     }
 
