@@ -31,10 +31,22 @@ class TOPSIS {
         $D_plus=$this->_D($y,$A_plus);
         $D_minus=$this->_D($y,$A_minus);
 
+
         var_dump($D_plus);
         echo "<br>";
         echo "<hr>";
         var_dump($D_minus);
+        
+
+        
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
+        echo "<hr>";
+        
+        echo "<hr>";
+        $V = $this->_preferebceValue($D_plus,$D_minus);
+        var_dump($V);
                  die;
         
         return $y;
@@ -146,6 +158,15 @@ class TOPSIS {
         } 
        
 
+        return $D;
+    }
+    public function _preferebceValue($Dplus,$Dmin){
+        $array_lengthRow = count($Dplus);
+        for ($i = 0; $i < $array_lengthRow; $i++) {
+            $D[$i]=$Dmin[$i]/($Dmin[$i]+$Dplus[$i]);
+        }
+        var_dump($D);
+        die;
         return $D;
     }
     
