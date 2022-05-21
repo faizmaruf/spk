@@ -1,48 +1,18 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-// require APPPATH."controlle
-class SPK extends CI_Controller
-{
-        
+
+class AHP{
+
     function __construct()
     {
-        parent::__construct();
+        
         $this->load->library('session');
         $this->load->library('upload');
         $this->load->model('m_pemain');
         
         // $x=$this->load->library('/Home.php');
-
-        // var_dump($x);
-        // die;
     }
-    // public
-    public function index()
-    {
-        $x['data'] = $this->m_pemain->getAllValue();
-        $data=$x['data'];
-       
-        
-        // $W=this_weightValue();
-        // $r=$this->$AHP;
-        var_dump($data);
-        echo "<br> <br>";
-
-        // $topsis = $this->Topsis($W,$data);
-        // print_r($topsis);
-
-        //  echo "<br> <br>";
-        die;
-        
-        
-        
-        // $this->load->view('v_home', $x);
-    }
-   
-
-    ////////////////////////////////////////////
-    // Algoritma AHP
     public function _weightValue(){
         //variable tabel perbandingan kriteria
         $jumlah[]=0;
@@ -123,7 +93,7 @@ class SPK extends CI_Controller
         die;
         return $p;
     }
-    private function NormalisasiAHP($data,$pembagi)
+    public function NormalisasiAHP($data,$pembagi)
     {
         $array_length = count($data);
          for ($row = 0; $row < $array_length; $row++) {
@@ -133,7 +103,7 @@ class SPK extends CI_Controller
         }
         return $p;
     }
-    private function weightValue($data)
+    public function weightValue($data)
     {   
         $array_length = count($data);
         for ($i=0; $i < $array_length; $i++) { 
@@ -146,7 +116,7 @@ class SPK extends CI_Controller
         return $p;
     }
 
-    private function _chehkCosistency($data,$data1)    
+    public function _chehkCosistency($data,$data1)    
     {
         // CI = (L-n)/(n-1) dan CR = CI/IR  . nilai IR n =6 adalah 1,24
         $array_length = count($data);
@@ -166,8 +136,19 @@ class SPK extends CI_Controller
         }
 
     }
-    ////////////////////////////////////////////
-    // Algoritma TOPSIS
+}
+
+
+class TOPSIS{
+     function __construct()
+    {
+        
+        $this->load->library('session');
+        $this->load->library('upload');
+        $this->load->model('m_pemain');
+    }
+
+
     public function Topsis($W,$data)
     {
         //Data dinormalisasi
@@ -197,7 +178,7 @@ class SPK extends CI_Controller
     }
 
 
-    private function _normalisasiData($data)
+    public function _normalisasiData($data)
     {
         $array_lengthRow = count($data);
         $array_lengthCol = count($data[0]);
@@ -213,7 +194,7 @@ class SPK extends CI_Controller
         return$this->_normaliasiTopsis($data,$akarsigma);
  
     } 
-    private function _akarSigma($data)
+    public function _akarSigma($data)
     {
         $array_length = count($data);
         for ($i = 0; $i < $array_length; $i++) {
@@ -221,7 +202,7 @@ class SPK extends CI_Controller
         }
        return $p;
     }
-    private function _normaliasiTopsis($data,$akarsigma)
+    public function _normaliasiTopsis($data,$akarsigma)
     {   
         $array_lengthRow = count($data);
         $array_lengthCol = count($data[0]);
@@ -234,7 +215,7 @@ class SPK extends CI_Controller
         }
        return $Rij;
     }
-    private function _findMax($data)
+    public function _findMax($data)
     {
         $array_lengthRow = count($data);
         $array_lengthCol = count($data[0]);
@@ -257,7 +238,7 @@ class SPK extends CI_Controller
         
         return $p;
     }
-    private function _findMin($data)
+    public function _findMin($data)
     {
         $array_lengthRow = count($data);
         $array_lengthCol = count($data[0]);
@@ -280,7 +261,7 @@ class SPK extends CI_Controller
         
         return $p;
     }
-    private function _DPlus($data,$yj)
+    public function _DPlus($data,$yj)
     {
         $array_lengthRow = count($data);
         $array_lengthCol = count($data[0]);
@@ -296,4 +277,85 @@ class SPK extends CI_Controller
         return $this->_getSumRow($D);
         // return $D_plus;
     }
+    public function _getSumCol($data){
+        $array_lengthRow = count($data);
+        $array_lengthCol = count($data[0]);
+        for ($i=0; $i < $array_lengthCol; $i++) { 
+            $p[$i]=0;
+        }
+        
+        $i=0;
+        for ($row = 0; $row < $array_lengthRow; $row++) {
+            $i=0;
+            for ($col = 0; $col < $array_lengthCol; $col++) {
+                $p[$i]=$p[$i]+$data[$row][$col];
+                $i++;
+		    }
+        }
+        return $p;
+    }
+    public function _getSumRow($data){
+        $array_lengthRow = count($data);
+        $array_lengthCol = count($data[0]);
+        // var_dump($array_lengthRow);
+        //  var_dump($array_lengthCol);
+        //  die;
+        for ($i=0; $i < $array_lengthCol; $i++) { 
+            $p[$i]=0;
+        }
+        $i=0;
+        for ($row = 0; $row < $array_lengthRow; $row++) {
+            for ($col = 0; $col < $array_lengthCol; $col++) {
+                $p[$i]=$p[$i]+$data[$row][$col];
+		    }
+            $i++;
+        }
+        var_dump($p);
+        die;
+        return $p;
+    }
 }
+
+class SPK extends CI_Controller
+{
+    
+    function __construct()
+    {
+        parent::__construct();
+        $this->load->library('session');
+        $this->load->library('upload');
+        $this->load->model('m_pemain');
+        $this->load->library('custom');
+        // var_dump($x);
+        // die;
+
+        // $ahp = new AHP();
+        // $topsis = new TOPSIS();
+    }
+    
+    public function index()
+    {   
+        
+        $x['data'] = $this->m_pemain->getAllValue();
+        $data=$x['data'];
+        $t = $this->custom->hitung(8,9);
+      
+        // $W=$this->$ahp->_weightValue();
+        var_dump($t);
+        die;
+        
+        // echo "<br> <br>";
+
+        // $topsis = $this->Topsis($W,$data);
+        // print_r($topsis);
+
+        //  echo "<br> <br>";
+        // die;
+        
+        
+        
+        // $this->load->view('v_home', $x);
+    }
+   
+}
+// $objekspk = new SPK();
