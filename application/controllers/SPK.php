@@ -22,9 +22,12 @@ class SPK extends CI_Controller
         $x['data'] = $this->m_pemain->getAllValue();
         $data=$x['data'];
         $W = $this->ahp->_weightValue();
+        $a = new $this->topsis;
+        // $a->$tblPerbandiangan = 0;
         
-        $Y = $this->topsis->Matriks($W,$data);
-        // var_dump($data);
+        // $Y = $this->topsis->Matriks($W,$data);
+        // var_dump($this->ahp->_weightValue());
+        var_dump($a->Matriks($W,$data));
         die;
 
         // $W=$this->$ahp->_weightValue();
