@@ -63,7 +63,7 @@ public function _weightValue(){
         $array_lengthCol = count($data[0]);
         //  var_dump($data);
         // die;
-        for ($i=0; $i < $array_lengthCol; $i++) { 
+        for ($i=0; $i < $array_lengthRow; $i++) { 
             $p[$i]=0;
         }
         $i=0;

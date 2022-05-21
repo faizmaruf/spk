@@ -23,15 +23,20 @@ class TOPSIS {
                 
 		    } 
         }
-        // var_dump($y);
-        //          die;
         $A_plus=$this->_findMax($y);
         
         $A_minus=$this->_findMin($y);
-       
+        
+        
+        $D_plus=$this->_D($y,$A_plus);
+        $D_minus=$this->_D($y,$A_minus);
 
-        $this->_DPlus($y,$A_plus);
-        die;
+        var_dump($D_plus);
+        echo "<br>";
+        echo "<hr>";
+        var_dump($D_minus);
+                 die;
+        
         return $y;
     }
 
@@ -119,22 +124,31 @@ class TOPSIS {
         
         return $p;
     }
-    public function _DPlus($data,$yj)
-    {
-        $array_lengthRow = count($data);
-        $array_lengthCol = count($data[0]);
+    public function _D($Y,$A)
+    {   
+        $array_lengthRow = count($Y);
+        $array_lengthCol = count($Y[0]);
+        
        
-        for ($row = 0; $row < $array_lengthRow; $row++) {
-            for ($col = 0; $col < $array_lengthCol; $col++) {
-                $yij= (array_values($data[$row]));
-                $D[$row][$col] = pow((($yij[$col])-($yj[$col])),2);
+        for ($i = 0; $i < $array_lengthRow; $i++) {
+            for ($j = 0; $j < $array_lengthCol; $j++) {
+                $yij= (array_values($Y[$i]));
+                $temp[$i][$j] = pow((($yij[$j])-($A[$j])),2);
 		    } 
         }
-        //  var_dump($data);
-        // die;
-        return $this->_getSumRow($D);
-        // return $D_plus;
+        $temp1=$this->_getSumRow($temp);
+       
+        for ($i=0; $i < $array_lengthRow; $i++) { 
+            $D[$i] =0;
+        }
+        for ($i = 0; $i < $array_lengthRow; $i++) {
+            $D[$i] =(sqrt($temp1[$i]));
+        } 
+       
+
+        return $D;
     }
+    
     public function _getSumCol($data){
         $array_lengthRow = count($data);
         $array_lengthCol = count($data[0]);
@@ -153,10 +167,12 @@ class TOPSIS {
         return $p;
     }
     public function _getSumRow($data){
+
         $array_lengthRow = count($data);
         $array_lengthCol = count($data[0]);
-    
-        for ($i=0; $i < $array_lengthCol; $i++) { 
+        
+        
+        for ($i=0; $i < $array_lengthRow; $i++) { 
             $p[$i]=0;
         }
         $i=0;
@@ -166,8 +182,8 @@ class TOPSIS {
 		    }
             $i++;
         }
-        var_dump($p);
-        die;
+        // var_dump($p);
+        // die;
         return $p;
     }
 
