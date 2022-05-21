@@ -29,4 +29,5 @@ class M_pemain extends CI_Model
 	{
 		$this->db->insert_batch('pemain', $data);
 	}
+    
 }

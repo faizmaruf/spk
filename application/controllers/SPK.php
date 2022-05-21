@@ -1,32 +1,38 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+// require APPPATH."controlle
 class SPK extends CI_Controller
 {
-
+        
     function __construct()
     {
         parent::__construct();
         $this->load->library('session');
         $this->load->library('upload');
         $this->load->model('m_pemain');
-    }
+        
+        // $x=$this->load->library('/Home.php');
 
+        // var_dump($x);
+        // die;
+    }
+    // public
     public function index()
     {
         $x['data'] = $this->m_pemain->getAllValue();
         $data=$x['data'];
        
-      
-        $W=$this->_weightValue();
         
-        
+        // $W=this_weightValue();
+        // $r=$this->$AHP;
+        var_dump($data);
         echo "<br> <br>";
 
-        $topsis = $this->Topsis($W,$data);
-        print_r($topsis);
+        // $topsis = $this->Topsis($W,$data);
+        // print_r($topsis);
 
-         echo "<br> <br>";
+        //  echo "<br> <br>";
         die;
         
         
@@ -102,9 +108,7 @@ class SPK extends CI_Controller
     public function _getSumRow($data){
         $array_lengthRow = count($data);
         $array_lengthCol = count($data[0]);
-        // var_dump($array_lengthRow);
-        //  var_dump($array_lengthCol);
-        //  die;
+        
         for ($i=0; $i < $array_lengthCol; $i++) { 
             $p[$i]=0;
         }

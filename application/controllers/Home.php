@@ -73,6 +73,10 @@ class Home extends CI_Controller
         $this->m_pemain->delete($id);
         redirect('Home');
     }
+    public function Delete1()
+    {
+        return 10;
+    }
 
     public function form()
     {
