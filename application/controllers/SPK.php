@@ -1,10 +1,8 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-
 class SPK extends CI_Controller
 {
-    
     function __construct()
     {
         parent::__construct();
@@ -31,13 +29,13 @@ class SPK extends CI_Controller
         $W = $ahp->_weightValue($tblPerbandingan);
 
         
-        // $a->$tblPerbandiangan = 0;
+        
         
         // $Y = $this->topsis->Matriks($W,$data);
         // var_dump($this->ahp->_weightValue());
-        // var_dump($a->Matriks($W,$data));
+        var_dump($topsis->Matriks($W,$data));
         // var_dump($W->_weightValue());
-        var_dump($W);
+        // var_dump($W);
         die;
 
         // $W=$this->$ahp->_weightValue();
