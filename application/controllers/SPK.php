@@ -24,6 +24,11 @@ class SPK extends CI_Controller
         $topsis = new $this->topsis;
         $calculate = new $this->calculate;
 
+
+        ///////////////////Metode AHP
+        //sampai mendapatkan nilai bobot tiap variable
+
+
         //tabel perbandingan prioritas dari pelatih
         $tblPerbandingan = $ahp->__construct();
         
@@ -32,27 +37,36 @@ class SPK extends CI_Controller
         //nilai eigen/normalisasi
         $normalisasi = $ahp->NormalisasiAHP($tblPerbandingan,$pembagi); 
 
-        $nilaibobot = $ahp->weightValue($normalisasi);  
+        //nilai bobot = W
+        $nilaibobot = $ahp->weightValue($normalisasi); 
+        $W = $nilaibobot;
+        //cek kosinsistensi
+        $cek=$ahp->_chehkCosistency($pembagi,$nilaibobot);
 
-        //Metode AHP mengeluarkan Output berupat nilai bobot tiap variable
-        // $W = $ahp->_weightValue($tblPerbandingan);
-        // $Y = $this->topsis->Matriks($W,$data);
-        // var_dump($this->ahp->_weightValue());
-        var_dump($nilaibobot);
-        // var_dump($W->_weightValue());
-        // var_dump($W);
-        die;
 
-        // $W=$this->$ahp->_weightValue();
-       
-        
-        // echo "<br> <br>";
+         ///////////////////Metode Topsis
+        //sampai mendapatkan nilai preferensi tiap alternatif
 
-        // $topsis = $this->Topsis($W,$data);
-        // print_r($topsis);
 
-        //  echo "<br> <br>";
-        // die;
+        //Data Pemain dinormalisasi terlebih dahulu
+        $rij=$topsis->_normalisasiData($data);
+
+        //data normalisasi terbobot yij = wj*rij
+        $y = $topsis->_normalisasiDataTerbobot($rij,$W);
+
+        //Mencari solusi ideal positive dan negative
+        $A_plus=$topsis->_findMax($y);
+        $A_minus=$topsis->_findMin($y);
+
+        //Mencari D+ dan D- untuk Setiap Altenatif
+        $D_plus=$topsis->_D($y,$A_plus);
+        $D_minus=$topsis->_D($y,$A_minus);
+
+        //menghitung nilai preferensi tiap alternatif 
+        $V = $topsis->_preferebceValue($D_plus,$D_minus);
+
+        //perangkingan
+
         
         
         

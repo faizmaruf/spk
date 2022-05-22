@@ -1,58 +1,13 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-// include(APPPATH.'/libraries/Calculate.php');
+
 class TOPSIS extends Calculate{
 
    function __construct(){
         
     }
 
-    public function Matriks($W,$data)
-    {
-        //Data dinormalisasi
-        $rij=$this->_normalisasiData($data);
-        
-        //data normalisasi terbobot yij = wj*rij
-        $array_lengthRow = count($rij);
-        $array_lengthCol = count($rij[0]);
-        // var_dump($array_lengthRow);
-        // die;
-       
-        for ($i = 0; $i < $array_lengthRow; $i++) {
-            for ($j = 0; $j < $array_lengthCol; $j++) {
-                $r1= (array_values($rij[$i]));
-                $y[$i][$j] = ($r1[$j])*($W[$j]);
-                
-		    } 
-        }
-        $A_plus=$this->_findMax($y);
-        
-        $A_minus=$this->_findMin($y);
-        
-        
-        $D_plus=$this->_D($y,$A_plus);
-        $D_minus=$this->_D($y,$A_minus);
 
-
-        var_dump($D_plus);
-        echo "<br>";
-        echo "<hr>";
-        var_dump($D_minus);
-        
-
-        
-        echo "<br>";
-        echo "<br>";
-        echo "<br>";
-        echo "<hr>";
-        
-        echo "<hr>";
-        $V = $this->_preferebceValue($D_plus,$D_minus);
-        var_dump($V);
-                 die;
-        
-        return $y;
-    }
 
 
     public function _normalisasiData($data)
@@ -68,10 +23,10 @@ class TOPSIS extends Calculate{
         }
         $sigma=$this->_getSumCol($Xij2);
         $akarsigma = $this->_akarSigma($sigma);
-        return$this->_normaliasiTopsis($data,$akarsigma);
+        return $this->_normaliasiTopsis($data,$akarsigma);
  
     } 
-    public function _akarSigma($data)
+    private function _akarSigma($data)
     {
         $array_length = count($data);
         for ($i = 0; $i < $array_length; $i++) {
@@ -79,7 +34,7 @@ class TOPSIS extends Calculate{
         }
        return $p;
     }
-    public function _normaliasiTopsis($data,$akarsigma)
+    private function _normaliasiTopsis($data,$akarsigma)
     {   
         $array_lengthRow = count($data);
         $array_lengthCol = count($data[0]);
@@ -92,6 +47,23 @@ class TOPSIS extends Calculate{
         }
        return $Rij;
     }
+
+    public function _normalisasiDataTerbobot($rij,$W)
+    {
+        $array_lengthRow = count($rij);
+        $array_lengthCol = count($rij[0]);
+  
+        for ($i = 0; $i < $array_lengthRow; $i++) {
+            for ($j = 0; $j < $array_lengthCol; $j++) {
+                $r1= (array_values($rij[$i]));
+                $y[$i][$j] = ($r1[$j])*($W[$j]);
+                
+		    } 
+        }
+        return $y;
+    }
+
+
     public function _findMax($data)
     {
         $array_lengthRow = count($data);

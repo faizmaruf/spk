@@ -15,32 +15,6 @@ class Ahp extends Calculate {
         return $tblPerbandiangan;
     }
 
-public function _weightValue($tbl){
-        //variable tabel perbandingan kriteria
-       
-        $tblPerbandingan= $tbl;
-            
-
-        //jumlah nilai dari tiap kolom
-        $pembagi =$this->_getSumCol($tblPerbandingan);
-        // var_dump($tblPerbandingan);
-        // die;
-        //nilai eigen/normalisasi
-        $normalisasi = $this->NormalisasiAHP($tblPerbandingan,$pembagi);  
-        
-        $nilaibobot = $this->weightValue($normalisasi);  
-        // var_dump($nilaibobot);
-        // die;
-        
-
-
-        //cek kosinsistensi
-        $cek=$this->_chehkCosistency($pembagi,$nilaibobot);
-        // var_dump($cek);
-        // die;
-        return $nilaibobot;
-
-    }
 
 
     public function NormalisasiAHP($data,$pembagi)

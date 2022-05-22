@@ -25,8 +25,7 @@ class Calculate {
     public function _getSumRow($data){
         $array_lengthRow = count($data);
         $array_lengthCol = count($data[0]);
-        //  var_dump($data);
-        // die;
+    
         for ($i=0; $i < $array_lengthRow; $i++) { 
             $p[$i]=0;
         }
