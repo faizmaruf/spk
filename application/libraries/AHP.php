@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 include(APPPATH.'/libraries/Calculate.php');
-class Ahp extends calculate {
+class Ahp extends Calculate {
     
     public function __construct(){
        $tblPerbandiangan=[
@@ -18,15 +18,15 @@ class Ahp extends calculate {
 public function _weightValue($tbl){
         //variable tabel perbandingan kriteria
        
-        $tblPerbandiangan= $tbl;
+        $tblPerbandingan= $tbl;
             
 
         //jumlah nilai dari tiap kolom
-        $pembagi =$this->_getSumCol($tblPerbandiangan);
-        // var_dump($tblPerbandiangan);
+        $pembagi =$this->_getSumCol($tblPerbandingan);
+        // var_dump($tblPerbandingan);
         // die;
         //nilai eigen/normalisasi
-        $normalisasi = $this->NormalisasiAHP($tblPerbandiangan,$pembagi);  
+        $normalisasi = $this->NormalisasiAHP($tblPerbandingan,$pembagi);  
         
         $nilaibobot = $this->weightValue($normalisasi);  
         // var_dump($nilaibobot);

@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 // include(APPPATH.'/libraries/Calculate.php');
-class TOPSIS extends calculate{
+class TOPSIS extends Calculate{
 
    function __construct(){
         

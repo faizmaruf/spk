@@ -1,8 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class calculate {
+class Calculate {
     
-
+  function __construct(){
+        
+    }
     public function _getSumCol($data){
         $array_lengthRow = count($data);
         $array_lengthCol = count($data[0]);
