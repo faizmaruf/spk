@@ -75,4 +75,3 @@ class SPK extends CI_Controller
 
    
 }
-// $objekspk = new SPK();
