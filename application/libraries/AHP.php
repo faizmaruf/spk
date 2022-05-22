@@ -1,6 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Ahp {
-     public $tblPerbandiangan=[
+    
+    public function __construct(){
+       $tblPerbandiangan=[
             [1.000,0.333,1.000,1.000,7.000,7.000],
             [3.000,1.000,3.000,3.000,9.000,9.000],
             [1.000,0.333,1.000,1.000,7.000,7.000],
@@ -8,27 +10,18 @@ class Ahp {
             [0.143,0.111,0.143,0.143,1.000,0.333],
             [0.143,0.111,0.143,0.143,3.000,1.000],
         ];
-    function __construct(){
-       
+        return $tblPerbandiangan;
     }
 
-public function _weightValue(){
+public function _weightValue($tbl){
         //variable tabel perbandingan kriteria
-        $jumlah[]=0;
-        $q=0;
-        $tblPerbandiangan=[
-            [1.000,0.333,1.000,1.000,7.000,7.000],
-            [3.000,1.000,3.000,3.000,9.000,9.000],
-            [1.000,0.333,1.000,1.000,7.000,7.000],
-            [1.000,0.333,1.000,1.000,7.000,5.000],
-            [0.143,0.111,0.143,0.143,1.000,0.333],
-            [0.143,0.111,0.143,0.143,3.000,1.000],
-        ];
-    
+       
+        $tblPerbandiangan= $tbl;
+            
 
         //jumlah nilai dari tiap kolom
         $pembagi =$this->_getSumCol($tblPerbandiangan);
-        // var_dump($pembagi);
+        // var_dump($tblPerbandiangan);
         // die;
         //nilai eigen/normalisasi
         $normalisasi = $this->NormalisasiAHP($tblPerbandiangan,$pembagi);  

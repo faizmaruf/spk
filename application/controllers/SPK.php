@@ -21,13 +21,23 @@ class SPK extends CI_Controller
         
         $x['data'] = $this->m_pemain->getAllValue();
         $data=$x['data'];
-        $W = $this->ahp->_weightValue();
-        $a = new $this->topsis;
+        $ahp = new $this->ahp;
+        $topsis = new $this->topsis;
+
+        //tabel perbandingan prioritas dari pelatih
+        $tblPerbandingan = $ahp->__construct();
+
+        //Metode AHP mengeluarkan Output berupat nilai bobot tiap variable
+        $W = $ahp->_weightValue($tblPerbandingan);
+
+        
         // $a->$tblPerbandiangan = 0;
         
         // $Y = $this->topsis->Matriks($W,$data);
         // var_dump($this->ahp->_weightValue());
-        var_dump($a->Matriks($W,$data));
+        // var_dump($a->Matriks($W,$data));
+        // var_dump($W->_weightValue());
+        var_dump($W);
         die;
 
         // $W=$this->$ahp->_weightValue();
