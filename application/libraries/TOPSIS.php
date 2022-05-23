@@ -7,9 +7,6 @@ class TOPSIS extends Calculate{
         
     }
 
-
-
-
     public function _normalisasiData($data)
     {
         $array_lengthRow = count($data);
@@ -139,8 +136,7 @@ class TOPSIS extends Calculate{
         for ($i = 0; $i < $array_lengthRow; $i++) {
             $D[$i]=$Dmin[$i]/($Dmin[$i]+$Dplus[$i]);
         }
-        var_dump($D);
-        die;
+      
         return $D;
     }
     

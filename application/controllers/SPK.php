@@ -62,16 +62,44 @@ class SPK extends CI_Controller
         $D_plus=$topsis->_D($y,$A_plus);
         $D_minus=$topsis->_D($y,$A_minus);
 
+       
+
         //menghitung nilai preferensi tiap alternatif 
         $V = $topsis->_preferebceValue($D_plus,$D_minus);
 
         //perangkingan
+        $z['data'] = $this->m_pemain->getAll();
+        $datapemain=$z['data'];
+        $datapemain1=$this->_masukinDataPreferensi($datapemain,$V);
 
-        
+        var_dump($datapemain1);
+        die;
         
         
         // $this->load->view('v_home', $x);
     }
+     public function _masukinDataPreferensi($data,$V)
+    {
+        $array_lengthRow = count($data);
+        $array_lengthCol = count($data[0]);
+        $preferensiIndex = $array_lengthCol-1;
+        // var_dump($array_lengthRow);
+        // var_dump($array_lengthCol);
+        // die;
+        for ($i = 0; $i < $array_lengthRow; $i++) {
+            for ($j = 0; $j < $array_lengthCol; $j++) {
+                $data1= (array_values($data[$i]));
+                $data1[$preferensiIndex] = $V[$i];
+                $data2[$i][$j]=$data1[$j];
+		    } 
+        }
+      return $data2;
+        
+    }
+    // public function FunctionName(Type $var = null)
+    // {
+    //     # code...
+    // } 
 
    
 }
