@@ -71,7 +71,10 @@ class SPK extends CI_Controller
         $z['data'] = $this->m_pemain->getAll();
         $datapemain=$topsis->_preferensi($z['data'],$V);
         
-        $this->topsis->Rank($datapemain);
+        // $this->topsis->Rank($datapemain);
+        $A['data'] = $this->m_pemain->rank();
+        $datapemainrangking = $A['data'];
+        var_dump($datapemainrangking);
         die;
         // $this->m_pemain->update_multiple($datapemain);
         

@@ -208,23 +208,29 @@ class TOPSIS extends Calculate{
         // $data1 = array($data);
         // var_dump($data1);
         // die;
-       
+        $k=1;
         for ($i = 0; $i < $array_lengthRow; $i++) {
             for ($j = 0; $j < $array_lengthRow-$i; $j++) {
                
-                if ($data[$i]['preferensi']>$data[$i+1]['preferensi']) {
+                if ($data[$i]['preferensi']>$data[$k]['preferensi']) {
                     // var_dump($data[$i]);
                     // echo "   morethan   ";
                     // var_dump($data[$i+1]);
                     // die;
 
-                    // array($temp[$i]) = array($data[$i]);
-                    // array($data[$i]) = array($data[$i+1]);
-                    // array($data[$i+1]) = array($temp[$i]);
+                    $temp[$i] = $data[$i];
+                    $data[$i] = $data[$i+1];
+                    $data[$i+1] = $temp[$i];
                 }
 
+            }
+            if ($k<35) {
+                $k++;
             } 
         }
+        var_dump($temp);
+        die;
+        
     }
     
 }

@@ -34,5 +34,10 @@ class M_pemain extends CI_Model
 	{
 		$this->db->update_batch('pemain', $data, 'id');
 	}
+    public function rank()
+    {
+        $hsl = $this->db->query("SELECT nama,preferensi FROM pemain ORDER BY preferensi DESC")->result_array();
+        return $hsl;
+    }
     
 }
