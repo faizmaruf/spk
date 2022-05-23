@@ -131,7 +131,7 @@ class TOPSIS extends Calculate{
 
         return $D;
     }
-    public function _preferebceValue($Dplus,$Dmin){
+    public function _preferenceValue($Dplus,$Dmin){
         $array_lengthRow = count($Dplus);
         for ($i = 0; $i < $array_lengthRow; $i++) {
             $D[$i]=$Dmin[$i]/($Dmin[$i]+$Dplus[$i]);
@@ -140,7 +140,92 @@ class TOPSIS extends Calculate{
         return $D;
     }
     
+     public function _preferensi($datapemainfutsal,$V)
+    {
+        
+        $data=$this->_masukinDataPreferensi($datapemainfutsal,$V);
+        
+        $datapemain = [];
+        $array_lengthRow = count($data);
+        $array_lengthCol = count($data[0]);
+        
+     
+        for ($i = 0; $i < $array_lengthRow; $i++) {
+            // for ($j = 0; $j < $array_lengthCol; $j++) {
+                $data1= (array_values($data[$i]));
 
+                $id = $data1[0]; 
+                $nama = $data1[1]; 
+                $posisi = $data1[2]; 
+                $fisik = $data1[3]; 
+                $passing = $data1[4]; 
+                $dribbling = $data1[5]; 
+                $shooting = $data1[6]; 
+                $heading = $data1[7]; 
+                $kognitif = $data1[8]; 
+                $preferensi = $data1[9]; 
+
+
+
+                
+            // } 
+            array_push($datapemain, [
+                'id' => $id,
+                'nama' => $nama,
+                'posisi' => $posisi,
+                'fisik' => $fisik,
+                'passing' => $passing,
+                'dribbling' => $dribbling,
+                'shooting' => $shooting,
+                'heading' => $heading,
+                'kognitif' => $kognitif,
+                'preferensi' => $preferensi,
+            ]);
+        }
+        return $datapemain; 
+    }
+      private function _masukinDataPreferensi($data,$V)
+    {
+        $array_lengthRow = count($data);
+        $array_lengthCol = count($data[0]);
+        $preferensiIndex = $array_lengthCol-1;
+       
+        for ($i = 0; $i < $array_lengthRow; $i++) {
+            for ($j = 0; $j < $array_lengthCol; $j++) {
+                $data1= (array_values($data[$i]));
+                $data1[$preferensiIndex] = $V[$i];
+                $data2[$i][$j]=$data1[$j];
+		    } 
+        }
+      return $data2;
+        
+    }
+    public function Rank($data)
+    {
+        $array_lengthRow = count($data);
+        // $array_lengthCol = count($data[0]);
+        // $preferensiIndex = $array_lengthCol-1;
+        // $data1 = array($data);
+        // var_dump($data1);
+        // die;
+       
+        for ($i = 0; $i < $array_lengthRow; $i++) {
+            for ($j = 0; $j < $array_lengthRow-$i; $j++) {
+               
+                if ($data[$i]['preferensi']>$data[$i+1]['preferensi']) {
+                    // var_dump($data[$i]);
+                    // echo "   morethan   ";
+                    // var_dump($data[$i+1]);
+                    // die;
+
+                    // array($temp[$i]) = array($data[$i]);
+                    // array($data[$i]) = array($data[$i+1]);
+                    // array($data[$i+1]) = array($temp[$i]);
+                }
+
+            } 
+        }
+    }
     
 }
 ?>

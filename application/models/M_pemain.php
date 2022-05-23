@@ -7,6 +7,7 @@ class M_pemain extends CI_Model
         $hsl = $this->db->query("SELECT * FROM pemain")->result_array();
         return $hsl;
     }
+    
      function getAllValue()
     {
         $hsl = $this->db->query("SELECT fisik,passing,dribbling,shooting,heading,kognitif FROM pemain")->result_array();
@@ -28,6 +29,10 @@ class M_pemain extends CI_Model
     public function insert_multiple($data)
 	{
 		$this->db->insert_batch('pemain', $data);
+	}
+    public function update_multiple($data)
+	{
+		$this->db->update_batch('pemain', $data, 'id');
 	}
     
 }
