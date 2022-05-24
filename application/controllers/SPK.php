@@ -75,12 +75,39 @@ class SPK extends CI_Controller
         
         $A['data'] = $this->m_pemain->rank();
         $datapemainrangking = $A['data'];
-        print_r($datapemainrangking);
-        die;
+        
+        $B['data'] = $this->m_pemain->getAllDataPemainTerpilih();
+        $datapemainterpilih =$B['data'];
+        $batas = count($datapemainterpilih); 
+       
+        while (count($datapemainrangking) > $batas ) {
+            array_pop($datapemainrangking);
+        }
+        $datapemainrangking14 = $datapemainrangking;
+        
+        $this->nilaiAkurasi($datapemainrangking14,$datapemainterpilih);
+        // var_dump($datapemainrangking);
+        // die;
         
         
         // $this->load->view('v_home', $x);
     }
-   
+   public function nilaiAkurasi($data,$data1)
+   {
+       $value=0;
+       $s=0;
+       for ($i=0; $i < count($data); $i++) { 
+           for ($j=0; $j < count($data1); $j++) { 
+               
+               if ($data[$i]['nama']==$data1[$j]['nama']) {
+                   $value++;
+                }
+            }
+        }
+    $n = count($data);
+    $akurasi = (($value/$n)*100);
+    var_dump($akurasi);
+    die;
+    }
    
 }

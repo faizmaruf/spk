@@ -39,5 +39,10 @@ class M_pemain extends CI_Model
         $hsl = $this->db->query("SELECT nama,preferensi FROM pemain ORDER BY preferensi DESC")->result_array();
         return $hsl;
     }
+    function getAllDataPemainTerpilih()
+    {
+        $hsl = $this->db->query("SELECT * FROM pemainterpilih")->result_array();
+        return $hsl;
+    }
     
 }
