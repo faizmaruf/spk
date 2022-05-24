@@ -200,38 +200,7 @@ class TOPSIS extends Calculate{
       return $data2;
         
     }
-    public function Rank($data)
-    {
-        $array_lengthRow = count($data);
-        // $array_lengthCol = count($data[0]);
-        // $preferensiIndex = $array_lengthCol-1;
-        // $data1 = array($data);
-        // var_dump($data1);
-        // die;
-        $k=1;
-        for ($i = 0; $i < $array_lengthRow; $i++) {
-            for ($j = 0; $j < $array_lengthRow-$i; $j++) {
-               
-                if ($data[$i]['preferensi']>$data[$k]['preferensi']) {
-                    // var_dump($data[$i]);
-                    // echo "   morethan   ";
-                    // var_dump($data[$i+1]);
-                    // die;
-
-                    $temp[$i] = $data[$i];
-                    $data[$i] = $data[$i+1];
-                    $data[$i+1] = $temp[$i];
-                }
-
-            }
-            if ($k<35) {
-                $k++;
-            } 
-        }
-        var_dump($temp);
-        die;
-        
-    }
+    
     
 }
 ?>
