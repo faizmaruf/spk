@@ -80,10 +80,8 @@ class Data extends CI_Controller
     public function form()
     {
         $data = array(); 
-
         if (isset($_POST['preview'])) { 
             $upload = $this->_uploadFile($this->filename);
-
             if ($upload['result'] == "success") { 
                 include APPPATH . 'third_party/PHPExcel/PHPExcel.php';
                 $csvreader = PHPExcel_IOFactory::createReader('CSV');
@@ -111,6 +109,7 @@ class Data extends CI_Controller
         $this->upload->initialize($config); 
         if ($this->upload->do_upload('file')) { 
             $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');
+
             return $return;
         } else {
             

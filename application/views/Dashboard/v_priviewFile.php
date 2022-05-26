@@ -22,7 +22,7 @@
     <div class="container">
 
         <!-- Buat sebuah tag form dan arahkan action nya ke controller ini lagi -->
-        <form method="post" action="<?php echo base_url("Home/form"); ?>" enctype="multipart/form-data">
+        <form method="post" action="<?php echo base_url("data/form"); ?>" enctype="multipart/form-data">
             <!--
 		-- Buat sebuah input type file
 		-- class pull-left berfungsi agar file input berada di sebelah kiri
@@ -44,7 +44,7 @@
             }
 
             // Buat sebuah tag form untuk proses import data ke database
-            echo "<form method='post' action='" . base_url("Home/import") . "'>";
+            echo "<form method='post' action='" . base_url("data/import") . "'>";
 
             // Buat sebuah div untuk alert validasi kosong
             echo "<div style='color: red;' id='kosong'>
@@ -160,7 +160,7 @@
 
                 // Buat sebuah tombol untuk mengimport data ke database
                 echo "<button type='submit' name='import' class='btn btn-primary'>Import</button> ";
-                echo "<a href='" . base_url("Home") . "' class='btn btn-danger'>Cancel</a>";
+                echo "<a href='" . base_url("data") . "' class='btn btn-danger'>Cancel</a>";
             }
 
             echo "</form>";
