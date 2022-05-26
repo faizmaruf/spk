@@ -90,7 +90,7 @@ class SPK extends CI_Controller
         // die;
         
         
-        // $this->load->view('v_home', $x);
+        // $this->load->view('dashboard/v_home', $x);
     }
    public function nilaiAkurasi($data,$data1)
    {
