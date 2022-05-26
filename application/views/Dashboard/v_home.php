@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1">   
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="<?= base_url();?>/assets/bootstrap-5/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="<?= base_url();?>/assets/style.css" />
+   
 </head>
+
 
 <body class="bg-dark">
     <div class="container-fluid bg-light">
@@ -27,9 +27,7 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate
-                            Report</a>
+                        
                     </div>
 
                     <!-- Content Row -->
@@ -40,12 +38,12 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs  text-primary text-uppercase mb-1">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Jumlah Pemain 36/44
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 ml-2  text-secondary">
+                                                    <div class="h5 mb-0  d-block font-weight-bold text-secondary">
                                                         81%
                                                     </div>
                                                 </div>
@@ -59,7 +57,7 @@
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                           
+                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -72,15 +70,15 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs  text-primary text-uppercase mb-1">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Jumlah Variable
                                             </div>
-                                            <div class="h5 mb-0  text-secondary">
+                                            <div class="h5 mb-0 font-weight-bold text-secondary">
                                                 6
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                           
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -97,7 +95,7 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0  text-primary">
+                                    <h6 class="m-0 font-weight-bold text-primary">
                                         Tabel Perbandingan Prioritas
                                     </h6>
                                 </div>
@@ -184,7 +182,7 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0  text-primary">
+                                    <h6 class="m-0 font-weight-bold text-primary">
                                         Penelitian
                                     </h6>
                                 </div>
@@ -192,7 +190,7 @@
                                 <div class="card-body">
                                     <div class="d-flex">
                                         <div class="m-auto h-100 w-100">
-                                            <img src="<?= base_url(); ?>/assets/images/bukti.jpeg" class="w-100" alt="" />
+                                            <img src="<?= base_url() ?>/assets/images/bukti.jpeg" class="w-100" alt="" />
                                         </div>
                                     </div>
                                     <div class="mt-4 text-center small">
@@ -211,10 +209,12 @@
                     </div>
 
                     
+                </div>
+                <!-- /.container-fluid -->
             </div>
         </div>
     </div>
-   <!-- Option 1: Bootstrap Bundle with Popper -->
+    <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>

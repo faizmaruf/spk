@@ -95,7 +95,7 @@ class Data extends CI_Controller
             }
         }
 
-        $this->load->view('v_priviewFile', $data);
+        $this->load->view('Dashboard/v_priviewFile', $data);
     }
 
     private function _uploadFile($filename)
