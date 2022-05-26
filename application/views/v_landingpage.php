@@ -31,7 +31,7 @@
                                 <p>Web App pendukung keputusan untuk membantu pelatih memilih pemain futsal terbaik</p>
                             </div>
                             <div class=" d-flex flex-row mt-lg-">
-                                <div class="btn"><a href="<?= site_url('');?>/home" class="btn btn-cta rounded-pill">Go It !!</a>
+                                <div class="btn"><a href="<?= site_url();?>/home" class="btn btn-cta rounded-pill">Go It !!</a>
                                 </div>
                                 <!-- <div class="btn"><a href="#" class="btn btn-outline-primary rounded-pill">tombol 1</a>
                                 </div> -->

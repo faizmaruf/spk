@@ -1,122 +1,122 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,700;1,300;1,400&family=Poppins:ital,wght@0,100;0,400;0,500;0,700;1,400;1,500&display=swap");
 
 * {
-  /* border: 1px yellow solid !important; */
-  font-family: Poppins;
+	/* border: 1px yellow solid !important; */
+	font-family: Poppins;
 }
 
 body {
-  height: 100vh;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
+	height: 100vh;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
 
 }
 
 .container {
-  flex: 1;
-  background: #f8f9fa;
+	flex: 1;
+	background: #f8f9fa;
 }
 
 .btn .btn {
-  box-shadow: 0px 36px 63px -7px rgba(0, 0, 0, 0.32);
-  -webkit-box-shadow: 0px 36px 63px -7px rgba(0, 0, 0, 0.32);
-  -moz-box-shadow: 0px 36px 63px -7px rgba(0, 0, 0, 0.32);
+	box-shadow: 0px 36px 63px -7px rgba(0, 0, 0, 0.32);
+	-webkit-box-shadow: 0px 36px 63px -7px rgba(0, 0, 0, 0.32);
+	-moz-box-shadow: 0px 36px 63px -7px rgba(0, 0, 0, 0.32);
 }
 
 .img-profile {
-  margin: auto;
-  clip-path: circle(42.6% at 52% 43%);
-  width: 175px;
-  box-shadow: 0px 36px 63px -7px rgba(0, 0, 0, 0.32);
-  -webkit-box-shadow: 0px 36px 63px -7px rgba(0, 0, 0, 0.32);
-  -moz-box-shadow: 0px 36px 63px -7px rgba(80, 49, 49, 0.32);
+	margin: auto;
+	clip-path: circle(42.6% at 52% 43%);
+	width: 175px;
+	box-shadow: 0px 36px 63px -7px rgba(0, 0, 0, 0.32);
+	-webkit-box-shadow: 0px 36px 63px -7px rgba(0, 0, 0, 0.32);
+	-moz-box-shadow: 0px 36px 63px -7px rgba(80, 49, 49, 0.32);
 }
 
 img:hover {
-  z-index: 100;
-  transform: scale(1.02);
-  transition: 500ms;
-  box-shadow: 0px 36px 63px -7px rgba(0, 0, 0, 0.32);
-  -webkit-box-shadow: 0px 36px 63px -7px rgba(0, 0, 0, 0.32);
-  -moz-box-shadow: 0px 36px 63px -7px rgba(0, 0, 0, 0.32);
+	z-index: 100;
+	transform: scale(1.02);
+	transition: 500ms;
+	box-shadow: 0px 36px 63px -7px rgba(0, 0, 0, 0.32);
+	-webkit-box-shadow: 0px 36px 63px -7px rgba(0, 0, 0, 0.32);
+	-moz-box-shadow: 0px 36px 63px -7px rgba(0, 0, 0, 0.32);
 }
 
 .btn-primary,
 .btn-outline-primary:hover {
-  font-family: Montserrat;
-  background-color: #F1A501;
-  border-color: #F1A501;
+	font-family: Montserrat;
+	background-color: #F1A501;
+	border-color: #F1A501;
 }
 
 .btn-cta {
-  font-family: Montserrat;
-  color: #fff;
-  background-color: #FF4C60;
-  border-color: #FF4C60;
-  width: 100%;
-  padding: 12px 32px;
-  font-size: 16px;
-  z-index: 999 !important;
-  position: relative;
+	font-family: Montserrat;
+	color: #fff;
+	background-color: #FF4C60;
+	border-color: #FF4C60;
+	width: 100%;
+	padding: 12px 32px;
+	font-size: 16px;
+	z-index: 999 !important;
+	position: relative;
 }
 
 
 .btn-outline-primary,
 .btn-primary:hover {
-  font-family: Montserrat;
-  color: #F1A501;
-  background-color: #fff;
-  border-color: #F1A501;
+	font-family: Montserrat;
+	color: #F1A501;
+	background-color: #fff;
+	border-color: #F1A501;
 
 
 }
 
 footer {
-  z-index: 1000;
-  background: red;
+	z-index: 1000;
+	background: red;
 }
 
 h1 {
-  font-family: Montserrat;
-  font-weight: bold;
-  color: #181E4B;
+	font-family: Montserrat;
+	font-weight: bold;
+	color: #181E4B;
 }
 
 h5 {
-  color: #DF6951;
+	color: #DF6951;
 }
 
 a {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 p {
-  color: #5E6282;
+	color: #5E6282;
 }
 
 .text-primary {
-  color: #181E4B !important;
+	color: #181E4B !important;
 }
 
 .text-secondary {
-  color: #5E6282;
+	color: #5E6282;
 }
 
 .bg-secondary-bar {
-  background-color: #5E6282 !important;
+	background-color: #5E6282 !important;
 }
 
 .bg-sidebar,
 .bg-primary-bar {
-  background-color: #181E4B !important;
+	background-color: #181E4B !important;
 }
 
 .fa,
 .active {
-  color: #181E4B !important;
-  z-index: 999 !important;
-  position: relative;
+	color: #181E4B !important;
+	z-index: 999 !important;
+	position: relative;
 }
 
 
@@ -127,141 +127,141 @@ p {
 
 .navbar-brand,
 .navbar-toggler-icon {
-  z-index: 999 !important;
-  position: relative;
+	z-index: 999 !important;
+	position: relative;
 }
 
 
 
 
 .circles {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	z-index: 0;
 }
 
 .circles li {
-  position: absolute;
-  display: block;
-  list-style: none;
-  width: 20px;
-  height: 20px;
-  background: rgba(255, 255, 255, 0.2);
-  animation: animate 25s linear infinite;
-  bottom: -150px;
-  color: #FF4C60;
-  z-index: -1;
+	position: absolute;
+	display: block;
+	list-style: none;
+	width: 20px;
+	height: 20px;
+	background: rgba(255, 255, 255, 0.2);
+	animation: animate 25s linear infinite;
+	bottom: -150px;
+	color: #FF4C60;
+	z-index: -1;
 
 }
 
 .circles li:nth-child(1) {
-  left: 25%;
-  width: 80px;
-  height: 80px;
-  animation-delay: 0s;
+	left: 25%;
+	width: 80px;
+	height: 80px;
+	animation-delay: 0s;
 }
 
 
 .circles li:nth-child(2) {
-  left: 10%;
-  width: 20px;
-  height: 20px;
-  animation-delay: 2s;
-  animation-duration: 12s;
+	left: 10%;
+	width: 20px;
+	height: 20px;
+	animation-delay: 2s;
+	animation-duration: 12s;
 }
 
 .circles li:nth-child(3) {
-  left: 70%;
-  width: 20px;
-  height: 20px;
-  animation-delay: 4s;
+	left: 70%;
+	width: 20px;
+	height: 20px;
+	animation-delay: 4s;
 }
 
 .circles li:nth-child(4) {
-  left: 40%;
-  width: 60px;
-  height: 60px;
-  animation-delay: 0s;
-  animation-duration: 18s;
+	left: 40%;
+	width: 60px;
+	height: 60px;
+	animation-delay: 0s;
+	animation-duration: 18s;
 }
 
 .circles li:nth-child(5) {
-  left: 65%;
-  width: 20px;
-  height: 20px;
-  animation-delay: 0s;
+	left: 65%;
+	width: 20px;
+	height: 20px;
+	animation-delay: 0s;
 }
 
 .circles li:nth-child(6) {
-  left: 75%;
-  width: 110px;
-  height: 110px;
-  animation-delay: 3s;
+	left: 75%;
+	width: 110px;
+	height: 110px;
+	animation-delay: 3s;
 }
 
 .circles li:nth-child(7) {
-  left: 35%;
-  width: 150px;
-  height: 150px;
-  animation-delay: 7s;
+	left: 35%;
+	width: 150px;
+	height: 150px;
+	animation-delay: 7s;
 }
 
 .circles li:nth-child(8) {
-  left: 50%;
-  width: 25px;
-  height: 25px;
-  animation-delay: 15s;
-  animation-duration: 45s;
+	left: 50%;
+	width: 25px;
+	height: 25px;
+	animation-delay: 15s;
+	animation-duration: 45s;
 }
 
 .circles li:nth-child(9) {
-  left: 20%;
-  width: 15px;
-  height: 15px;
-  animation-delay: 2s;
-  animation-duration: 35s;
+	left: 20%;
+	width: 15px;
+	height: 15px;
+	animation-delay: 2s;
+	animation-duration: 35s;
 }
 
 .circles li:nth-child(10) {
-  left: 85%;
-  width: 150px;
-  height: 150px;
-  animation-delay: 0s;
-  animation-duration: 11s;
+	left: 85%;
+	width: 150px;
+	height: 150px;
+	animation-delay: 0s;
+	animation-duration: 11s;
 }
 
 
 
 @keyframes animate {
 
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 1;
-    border-radius: 0;
-  }
+	0% {
+		transform: translateY(0) rotate(0deg);
+		opacity: 1;
+		border-radius: 0;
+	}
 
-  100% {
-    transform: translateY(-1000px) rotate(720deg);
-    opacity: 0;
-    border-radius: 50%;
-  }
+	100% {
+		transform: translateY(-1000px) rotate(720deg);
+		opacity: 0;
+		border-radius: 50%;
+	}
 
 }
 
 @media (max-width: 576px) {
-  .d-flex {
-    flex-direction: column-reverse;
+	.d-flex {
+		flex-direction: column-reverse;
 
-  }
+	}
 
-  div .btn-cta {
-    font-size: 12px;
-    padding: 9px 24px;
-  }
+	div .btn-cta {
+		font-size: 12px;
+		padding: 9px 24px;
+	}
 }
 
 /* <footer><div class="container"><div class="m-5"></div></div></footer> */

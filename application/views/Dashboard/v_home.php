@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,240 +6,224 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-    <style>
-        * {
-            border: 1px yellowgreen solid;
-        }
-    </style>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="<?= base_url();?>/assets/bootstrap-5/css/bootstrap.css" />
+    <link rel="stylesheet" href="<?= base_url();?>/assets/style.css" />
 </head>
 
-<body>
-    <div class="container ">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambah">tambah</button>
-        <a href="<?= base_url('Home/form') ?>" class="btn btn-secondary">import csv</a>
-        <a href="<?= base_url('SPK') ?>" class="btn btn-primary">Komputasi AHP dan TOPSIS</a>
-        <div class="d-flex w-100 h-100">
+<body class="bg-dark">
+    <div class="container-fluid bg-light">
+        <div class="row flex-nowrap">
+            <!-- start code sidebar -->
+            <?php $this->load->view('Dashboard/v_sidebar'); ?>
+            <!-- finish code sidebar -->
+            <div class="col py-3">
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Generate
+                            Report</a>
+                    </div>
 
-            <table class="table tbl">
-                <tr>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>Posisi</th>
-                    <th>Fisik</th>
-                    <th>Passing</th>
-                    <th>Dribbling</th>
-                    <th>Shotting</th>
-                    <th>Heading</th>
-                    <th>Kognitif</th>
-                    <th>Aksi</th>
-                </tr>
-                <?php $i = 0 ?>
-                <?php foreach ($data as $d) : ?>
-                    <?php $i++; ?>
-                    <tr>
-                        <td><?= $i; ?></td>
-                        <td><?= $d["nama"]; ?></td>
-                        <td><?= $d["posisi"]; ?></td>
-                        <td><?= $d["fisik"]; ?></td>
-                        <td><?= $d["passing"]; ?></td>
-                        <td><?= $d["dribbling"]; ?></td>
-                        <td><?= $d["shooting"]; ?></td>
-                        <td><?= $d["heading"]; ?></td>
-                        <td><?= $d["kognitif"]; ?></td>
-                        <td>
-
-
-                            <a href="#" class="btn btn-info editmodal" data-toggle="modal" id="editbtn" data-id="<?= $d['id']; ?>" data-nama="<?= $d['nama']; ?>" data-posisi="<?= $d['posisi']; ?>" data-fisik="<?= $d['fisik']; ?>" data-passing="<?= $d['passing']; ?>" data-dribbling="<?= $d['dribbling']; ?>" data-shooting="<?= $d['shooting']; ?>" data-heading="<?= $d['heading']; ?>" data-kognitif="<?= $d['kognitif']; ?>">edit</a>
-                            <a href="<?php echo site_url() . 'Home/delete' ?>?id=<?= $d['id']; ?>" type="button" class="btn btn-danger">hapus</a>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-            </table>
-        </div>
-    </div>
-
-    <!-- The Modal Tambah -->
-    <div class="modal" id="tambah">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Modal Heading</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    Modal body..
-                    <!-- coding disini -->
-                    <form action="<?= site_url('Home/Add'); ?>" method="post" enctype="multipart/form-data">
-                        <div>
-                            <label for="nama"></label>
-                            <input class="form-control" name="xname" placeholder="Nama Lengkap" id="nama" required>
-                        </div>
-                        <div>
-                            <label for="posisi"></label>
-                            <div class="form-control">
-                                <input type="radio" name="xposisi" id="posisi" value="Flank" required>Flank
-                                <input type="radio" name="xposisi" id="posisi" value="Pivot" required>Pivot
-                                <input type="radio" name="xposisi" id="posisi" value="Anchor" required>Anchor
+                    <!-- Content Row -->
+                    <div class="row">
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs  text-primary text-uppercase mb-1">
+                                                Jumlah Pemain 36/44
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 ml-2  text-secondary">
+                                                        81%
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <div class="progress-bar bg-secondary-bar" role="progressbar"
+                                                            style="width: 82%" aria-valuenow="50" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                           
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div>
-                            <label for="fisik"></label>
-                            <input class="form-control" name="xfisik" placeholder="Fisik" id="fisik" required>
+
+                        <!-- Pending Requests Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs  text-primary text-uppercase mb-1">
+                                                Jumlah Variable
+                                            </div>
+                                            <div class="h5 mb-0  text-secondary">
+                                                6
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <label for="passing"></label>
-                            <input class="form-control" name="xpassing" placeholder="Passing" id="passing" required>
+                    </div>
+
+                    <!-- Content Row -->
+
+                    <div class="row">
+                        <!-- Area Chart -->
+                        <div class="col-xl-8 col-lg-7">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0  text-primary">
+                                        Tabel Perbandingan Prioritas
+                                    </h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <table class="table text-center">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col"></th>
+                                                    <th scope="col">Fisik</th>
+                                                    <th scope="col">Passing</th>
+                                                    <th scope="col">Dribbling</th>
+                                                    <th scope="col">Shooting</th>
+                                                    <th scope="col">Heading</th>
+                                                    <th scope="col">Koginitif</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Fisik</th>
+                                                    <td>1,000</td>
+                                                    <td>0,333</td>
+                                                    <td>1,000</td>
+                                                    <td>1,000</td>
+                                                    <td>7,000</td>
+                                                    <td>7,000</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Passing</th>
+                                                    <td>3,000</td>
+                                                    <td>1,000</td>
+                                                    <td>3,000</td>
+                                                    <td>3,000</td>
+                                                    <td>9,000</td>
+                                                    <td>9,000</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Dribbling</th>
+                                                    <td>1,000</td>
+                                                    <td>0,333</td>
+                                                    <td>1,000</td>
+                                                    <td>1,000</td>
+                                                    <td>7,000</td>
+                                                    <td>7,000</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Shooting</th>
+                                                    <td>1,000</td>
+                                                    <td>0,333</td>
+                                                    <td>1,000</td>
+                                                    <td>1,000</td>
+                                                    <td>7,000</td>
+                                                    <td>5,000</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Heading</th>
+                                                    <td>0,143</td>
+                                                    <td>0,111</td>
+                                                    <td>0,143</td>
+                                                    <td>0,143</td>
+                                                    <td>0,100</td>
+                                                    <td>0,333</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Kognitif</th>
+                                                    <td>0,143</td>
+                                                    <td>0,111</td>
+                                                    <td>0,143</td>
+                                                    <td>0,200</td>
+                                                    <td>3,000</td>
+                                                    <td>1,000</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div>
-                            <label for="dribbling"></label>
-                            <input class="form-control" name="xdribbling" placeholder="Dribbling" id="dribbling" required>
+                        <!-- Pie Chart -->
+                        <div class="col-xl-4 col-lg-5">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0  text-primary">
+                                        Penelitian
+                                    </h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="m-auto h-100 w-100">
+                                            <img src="<?= base_url(); ?>/assets/images/bukti.jpeg" class="w-100" alt="" />
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 text-center small">
+                                        <span class="me-5"><a href="https://www.instagram.com/p/B1yckC_jAHr/">
+                                                <i class="fs-4 bi-instagram text-primary"></i></a>
+                                        </span>
+                                        <span class="mr-2"><a
+                                                href="https://ulasantempat.com/lampung/badminton-futsal-kafifa-467368">
+                                                <i class="fs-4 bi-map text-primary"></i>
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </div>
 
-                        <div>
-                            <label for="shooting"></label>
-                            <input class="form-control" name="xshooting" placeholder="Shooting" id="shooting" required>
-                        </div>
-
-                        <div>
-                            <label for="heading"></label>
-                            <input class="form-control" name="xheading" placeholder="Heading" id="heading" required>
-                        </div>
-
-                        <div>
-                            <label for="kognitif"></label>
-                            <input class="form-control" name="xkognitif" placeholder="Kognitif" id="kognitif" required>
-                        </div>
-
-                </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Tambah</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </form>
-                </div>
-
+                    
             </div>
         </div>
     </div>
-    <!-- The Modal edit -->
-    <div class="modal" id="editModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Modal Heading</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    Modal body..
-                    <!-- coding disini -->
-                    <form action="<?= site_url('Home/Update'); ?>" method="post" enctype="multipart/form-data">
-                        <div>
-                            <label for="nama"></label>
-                            <input class="form-control nama" name="xname" placeholder="Nama Lengkap" id="nama" required>
-                        </div>
-                        <div>
-                            <label for="posisi"></label>
-                            <div class="form-control posisi">
-                                <input type="radio" class="posisi" name="xposisi" id="posisi" value="Flank" required>Flank
-                                <input type="radio" class="posisi" name="xposisi" id="posisi" value="Pivot" required>Pivot
-                                <input type="radio" class="posisi" name="xposisi" id="posisi" value="Anchor" required>Anchor
-                            </div>
-                        </div>
-                        <div>
-                            <label for="fisik"></label>
-                            <input class="form-control fisik" name="xfisik" placeholder="Fisik" id="fisik" required>
-                        </div>
-                        <div>
-                            <label for="passing"></label>
-                            <input class="form-control passing" name="xpassing" placeholder="Passing" id="passing" required>
-                        </div>
-
-                        <div>
-                            <label for="dribbling"></label>
-                            <input class="form-control dribbling" name="xdribbling" placeholder="Dribbling" id="dribbling" required>
-                        </div>
-
-                        <div>
-                            <label for="shooting"></label>
-                            <input class="form-control shooting" name="xshooting" placeholder="Shooting" id="shooting" required>
-                        </div>
-
-                        <div>
-                            <label for="heading"></label>
-                            <input class="form-control heading" name="xheading" placeholder="Heading" id="heading" required>
-                        </div>
-
-                        <div>
-                            <label for="kognitif"></label>
-                            <input class="form-control kognitif" name="xkognitif" placeholder="Kognitif" id="kognitif" required>
-                        </div>
-
-                </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <input class="id" type="hidden" name="xid" id="id">
-                    <button type="submit" class="btn btn-primary">Update</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <script>
-        $(document).ready(function() {
-            $('.editmodal').on('click', function() {
-                //get data from button edit
-                const id = $(this).data('id');
-                const nama = $(this).data('nama');
-                const posisi = $(this).data('posisi');
-                const fisik = $(this).data('fisik');
-                const passing = $(this).data('passing');
-                const dribbling = $(this).data('dribbling');
-                const shooting = $(this).data('shooting');
-                const heading = $(this).data('heading');
-                const kognitif = $(this).data('kognitif');
-                // // set data form edit
-                $('.id').val(id);
-                $('.nama').val(nama);
-                // $('.posisi').val(posisi).trigger('change');
-                // $('.posisi' + posisi).prop('checked', true);
-                // $('.posisi').val(posisi).prop('checked', posisi);
-                // $('.posisi').val(posisi).prop('checked', true);
-                // $('.posisi').val(posisi).attr('checked', true);
-                // $('.posisi').val(posisi).prop('checked', posisi);
-                // $('.posisi').prop('checked');
-                // $('.posisi').val(posisi).click();
-                // $(input[xposisi][posisi]).prop('checked', true);
-                $('.fisik').val(fisik);
-                $('.passing').val(passing);
-                $('.dribbling').val(dribbling);
-                $('.shooting').val(shooting);
-                $('.heading').val(heading);
-                $('.kognitif').val(kognitif);
-                // call modal edit
-                console.log(fisik);
-                $('#editModal').modal("show");
-            });
-        });
+   <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>
