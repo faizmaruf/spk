@@ -1,8 +1,8 @@
 <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-sidebar">
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                    <a href="/"
+                    <a href="<?= base_url('home') ?>"
                         class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                        <span class="fs-5 d-none d-sm-inline">SPK</span>
+                        <span class="fs-5 d-none d-sm-inline"><h5 class="text-light">SPK</h5></span>
                     </a>
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start mt-5"
                         id="menu">

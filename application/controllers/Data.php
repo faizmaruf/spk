@@ -75,6 +75,11 @@ class Data extends CI_Controller
         $this->m_pemain->delete($id);
         redirect('data');
     }
+    public function DeleteAll()
+    {
+        $this->m_pemain->deleteAll();
+        redirect('data');
+    }
   
 
     public function form()

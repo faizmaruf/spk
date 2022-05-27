@@ -31,6 +31,10 @@ class M_pemain extends CI_Model
     {
         $this->db->delete('pemain', array('id' => $id));
     }
+    function deleteAll()
+    {
+        return $this->db->query("DELETE FROM pemain");
+    }
     public function insert_multiple($data)
 	{
 		$this->db->insert_batch('pemain', $data);

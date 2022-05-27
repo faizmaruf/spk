@@ -35,29 +35,28 @@
                     </div>
 
                     <!-- Content Row -->
-                    <div class="row">
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-2 col-md-2 mb-2">
+                   
+                <div class="row font-kecil">
+                    <div class="col-xl-1 col-md-2 mb-2">
                             <div class="btn d-flex">
-                                <div class="btn m-auto btn-secondary d-flex">
-                                    <button data-toggle="modal" data-target="#tambah"
-                                        class="text-light d-block m-auto d-flex"><i
-                                            class="fs-4 bi-plus m-auto d-block"></i>
-                                        Tambah</button>
-                                </div>
+                                <a data-toggle="modal" data-target="#tambah"
+                                 type="a" class="btn btn-outline-primary btn-sm"><i
+                                            class="fs-4 bi-plus"></i>Tambah</a>
                             </div>
-                        </div>
-                        <!-- Pending Requests Card Example -->
-                        <div class="col-xl-2 col-md-2 mb-2">
-                            <div class="btn d-flex">
-                                <div class="btn m-auto btn-outline-secondary d-flex">
-                                    <a href="<?= base_url('Data/form') ?>" class="text-primary d-block m-auto d-flex"><i
-                                            class="fs-4 bi-file-earmark-arrow-down"></i>
-                                        Import</a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
+                    <div class="col-xl-1 col-md-2 mb-2">
+                            <div class="btn d-flex">
+                                <a href="<?= site_url('Data/form')?>" type="a" class="btn btn-success btn-sm"><i
+                                            class="fs-4 bi-file-earmark-arrow-down"></i>Import</a>
+                            </div>
+                    </div>
+                    <div class="col-xl-1 col-md-2 mb-2">
+                            <div class="btn d-flex">
+                                <a href="<?= site_url('Data/DeleteAll')?>" type="a" class="btn btn-danger btn-sm bg-danger"><i
+                                            class="fs-4 bi-trash"></i>Semua</a>
+                            </div>
+                    </div>
+                </div>
 
                     <!-- Content Row -->
 
