@@ -35,7 +35,7 @@
                         </li> -->
 
                         <li class="nav-item mt-5">
-                            <a href="#" class="nav-link px-0 align-middle text-light">
+                            <a href="<?= site_url() ?>SPK" class="nav-link px-0 align-middle text-light">
                                 <i class="fs-4 bi-graph-up"></i>
                                 <span class="ms-1 d-none d-sm-inline">Hasil Perangkingan</span>
                             </a>

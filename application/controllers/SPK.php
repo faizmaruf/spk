@@ -17,9 +17,10 @@ class SPK extends CI_Controller
     
     public function index()
     {   
-        
+        $x['nama'] = $this->m_pemain->getAllName();
         $x['data'] = $this->m_pemain->getAllValue();
         $data=$x['data'];
+        
         $ahp = new $this->ahp;
         $topsis = new $this->topsis;
         $calculate = new $this->calculate;
@@ -40,9 +41,11 @@ class SPK extends CI_Controller
         //nilai bobot = W
         $nilaibobot = $ahp->weightValue($normalisasi); 
         $W = $nilaibobot;
+        $x['bobot']=$W;
+        $x['tabledata'] = $this->m_pemain->getAll();
         //cek kosinsistensi
         $cek=$ahp->_chehkCosistency($pembagi,$nilaibobot);
-
+        // $x['bobot'] = $this->load->view('Dashboard/History/v_bobot', $W);
 
          ///////////////////Metode Topsis
         //sampai mendapatkan nilai preferensi tiap alternatif
@@ -50,17 +53,24 @@ class SPK extends CI_Controller
 
         //Data Pemain dinormalisasi terlebih dahulu
         $rij=$topsis->_normalisasiData($data);
+        $x['rij']=$rij;
 
         //data normalisasi terbobot yij = wj*rij
         $y = $topsis->_normalisasiDataTerbobot($rij,$W);
+        $x['y']=$y;
 
         //Mencari solusi ideal positive dan negative
         $A_plus=$topsis->_findMax($y);
         $A_minus=$topsis->_findMin($y);
+        $x['A_plus']=$A_plus;
+        $x['A_minus']=$A_minus;
+
 
         //Mencari D+ dan D- untuk Setiap Altenatif
         $D_plus=$topsis->_D($y,$A_plus);
         $D_minus=$topsis->_D($y,$A_minus);
+        $x['D_plus']=$D_plus;
+        $x['D_minus']=$D_minus;
 
        
 
@@ -71,26 +81,27 @@ class SPK extends CI_Controller
         $z['data'] = $this->m_pemain->getAll();
         $datapemain=$topsis->_preferensi($z['data'],$V);
         
-        // $this->m_pemain->update_multiple($datapemain);
+        $this->m_pemain->update_multiple($datapemain);
         
         $A['data'] = $this->m_pemain->rank();
         $datapemainrangking = $A['data'];
+        $x['datarangking']= $datapemainrangking;
+
         
         $B['data'] = $this->m_pemain->getAllDataPemainTerpilih();
         $datapemainterpilih =$B['data'];
+        $x['datapemainterpilih']=$datapemainterpilih;
         $batas = count($datapemainterpilih); 
-       
         while (count($datapemainrangking) > $batas ) {
             array_pop($datapemainrangking);
         }
         $datapemainrangking14 = $datapemainrangking;
         
-        $this->nilaiAkurasi($datapemainrangking14,$datapemainterpilih);
-        // var_dump($datapemainrangking);
-        // die;
+        $x['akurasi']=$this->nilaiAkurasi($datapemainrangking14,$datapemainterpilih);
         
         
-        // $this->load->view('dashboard/v_home', $x);
+        
+        $this->load->view('Dashboard/v_spk', $x);
     }
    public function nilaiAkurasi($data,$data1)
    {
@@ -106,8 +117,7 @@ class SPK extends CI_Controller
         }
     $n = count($data);
     $akurasi = (($value/$n)*100);
-    var_dump($akurasi);
-    die;
+    return $akurasi;
     }
    
 }

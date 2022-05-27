@@ -7,6 +7,11 @@ class M_pemain extends CI_Model
         $hsl = $this->db->query("SELECT * FROM pemain")->result_array();
         return $hsl;
     }
+    function getAllName()
+    {
+        $hsl = $this->db->query("SELECT nama FROM pemain")->result_array();
+        return $hsl;
+    }
     
      function getAllValue()
     {
