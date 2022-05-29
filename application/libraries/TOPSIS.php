@@ -20,6 +20,8 @@ class TOPSIS extends Calculate{
         }
         $sigma=$this->_getSumCol($Xij2);
         $akarsigma = $this->_akarSigma($sigma);
+        // var_dump($akarsigma);
+        // die;
         return $this->_normaliasiTopsis($data,$akarsigma);
  
     } 

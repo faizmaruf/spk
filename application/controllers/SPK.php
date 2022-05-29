@@ -54,6 +54,8 @@ class SPK extends CI_Controller
         //Data Pemain dinormalisasi terlebih dahulu
         $rij=$topsis->_normalisasiData($data);
         $x['rij']=$rij;
+// var_dump($rij);
+// die;
 
         //data normalisasi terbobot yij = wj*rij
         $y = $topsis->_normalisasiDataTerbobot($rij,$W);
