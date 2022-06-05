@@ -39,8 +39,8 @@ class SPK extends CI_Controller
 
         //nilai bobot = W
         $nilaibobot = $ahp->weightValue($normalisasi); 
-        var_dump($nilaibobot);
-        die;
+        // var_dump($nilaibobot);
+        // die;
         $W = $nilaibobot;
         $x['bobot']=$W;
         $x['tabledata'] = $this->m_pemain->getAll();

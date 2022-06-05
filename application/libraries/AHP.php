@@ -35,13 +35,10 @@ class Ahp {
         }
         $data1 = $data;
         $sum = _getSumRow($data1);
-        // var_dump($sum);
-        // die;
+      
         for ($i=0; $i < $array_length; $i++) { 
             $p[$i]=$sum[$i]/$array_length;
-        }
-        // var_dump($p);
-        // die;
+        } 
         return $p;
     }
 
