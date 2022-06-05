@@ -209,4 +209,4 @@ class TOPSIS extends Calculate{
 
 <!-- cek data yang belum diselesaiin ditahap normanlisasi -->
 <!-- pindahin kelas Calculate ke Folder helper, serta rename menjadi calculateHelper -->
-<!-- change variable name with code writing principle -->
+<!-- change variable name with case styles principle -->
