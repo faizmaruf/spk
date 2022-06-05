@@ -206,3 +206,5 @@ class TOPSIS extends Calculate{
     
 }
 ?>
+
+<!-- cek data yang belum diselesaiin ditahap normanlisasi -->
