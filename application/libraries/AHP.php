@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-include(APPPATH.'/libraries/Calculate.php');
-class Ahp extends Calculate {
+// include(APPPATH.'/libraries/Calculate.php');
+class Ahp {
     
     public function __construct(){
        $tblPerbandiangan=[
@@ -34,7 +34,9 @@ class Ahp extends Calculate {
             $p[$i]=0;
         }
         $data1 = $data;
-        $sum = $this->_getSumRow($data1);
+        $sum = _getSumRow($data1);
+        // var_dump($sum);
+        // die;
         for ($i=0; $i < $array_length; $i++) { 
             $p[$i]=$sum[$i]/$array_length;
         }

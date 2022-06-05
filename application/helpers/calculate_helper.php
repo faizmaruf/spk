@@ -1,11 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Calculate {
-    
-  function __construct(){
-        
-    }
-    public function _getSumCol($data){
+  
+    function _getSumCol($data){
         $array_lengthRow = count($data);
         $array_lengthCol = count($data[0]);
         for ($i=0; $i < $array_lengthCol; $i++) { 
@@ -22,7 +18,7 @@ class Calculate {
         }
         return $p;
     }
-    public function _getSumRow($data){
+   function _getSumRow($data){
         $array_lengthRow = count($data);
         $array_lengthCol = count($data[0]);
     
@@ -40,6 +36,3 @@ class Calculate {
        
         return $p;
     }
-    
-}
-?>

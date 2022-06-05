@@ -11,8 +11,6 @@ class SPK extends CI_Controller
         $this->load->model('m_pemain');
         $this->load->library('ahp');
         $this->load->library('topsis');
-        $this->load->library('calculate');
-    
     }
     
     public function index()
@@ -23,7 +21,7 @@ class SPK extends CI_Controller
         
         $ahp = new $this->ahp;
         $topsis = new $this->topsis;
-        $calculate = new $this->calculate;
+      
 
 
         ///////////////////Metode AHP
@@ -33,13 +31,16 @@ class SPK extends CI_Controller
         //tabel perbandingan prioritas dari pelatih
         $tblPerbandingan = $ahp->__construct();
         
-        $pembagi= $calculate->_getSumCol($tblPerbandingan);
+       
+        $pembagi= _getSumCol($tblPerbandingan);
 
         //nilai eigen/normalisasi
         $normalisasi = $ahp->NormalisasiAHP($tblPerbandingan,$pembagi); 
 
         //nilai bobot = W
         $nilaibobot = $ahp->weightValue($normalisasi); 
+        var_dump($nilaibobot);
+        die;
         $W = $nilaibobot;
         $x['bobot']=$W;
         $x['tabledata'] = $this->m_pemain->getAll();

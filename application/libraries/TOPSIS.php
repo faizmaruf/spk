@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 
-class TOPSIS extends Calculate{
+class TOPSIS{
 
    function __construct(){
         
@@ -18,7 +18,7 @@ class TOPSIS extends Calculate{
                 $Xij2[$row][$col]=pow($Xij[$col],2); 
 		    } 
         }
-        $sigma=$this->_getSumCol($Xij2);
+        $sigma=_getSumCol($Xij2);
         $akarsigma = $this->_akarSigma($sigma);
         // var_dump($akarsigma);
         // die;
@@ -121,7 +121,7 @@ class TOPSIS extends Calculate{
                 $temp[$i][$j] = pow((($yij[$j])-($A[$j])),2);
 		    } 
         }
-        $temp1=$this->_getSumRow($temp);
+        $temp1=_getSumRow($temp);
        
         for ($i=0; $i < $array_lengthRow; $i++) { 
             $D[$i] =0;
