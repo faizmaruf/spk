@@ -36,3 +36,18 @@
        
         return $p;
     }
+    function nilaiAkurasi($data,$data1){
+       $value=0;
+       $s=0;
+       for ($i=0; $i < count($data); $i++) { 
+           for ($j=0; $j < count($data1); $j++) { 
+               
+               if ($data[$i]['nama']==$data1[$j]['nama']) {
+                   $value++;
+                }
+            }
+        }
+    $n = count($data);
+    $akurasi = (($value/$n)*100);
+    return $akurasi;
+    }

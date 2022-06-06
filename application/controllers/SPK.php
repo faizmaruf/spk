@@ -33,11 +33,10 @@ class SPK extends CI_Controller
 
         //nilai eigen/normalisasi
         $normalisasi = $ahp->NormalisasiAHP($tblPerbandingan,$pembagi); 
+       
 
         //nilai bobot = W
         $nilaibobot = $ahp->weightValue($normalisasi); 
-        // var_dump($nilaibobot);
-        // die;
         $W = $nilaibobot;
         $x['bobot']=$W;
         $x['tabledata'] = $this->m_pemain->getAll();
@@ -97,27 +96,12 @@ class SPK extends CI_Controller
         }
         $datapemainrangking14 = $datapemainrangking;
         
-        $x['akurasi']=$this->nilaiAkurasi($datapemainrangking14,$datapemainterpilih);
+        $x['akurasi']=nilaiAkurasi($datapemainrangking14,$datapemainterpilih);
         
         
         
         $this->load->view('Dashboard/v_spk', $x);
     }
-   public function nilaiAkurasi($data,$data1)
-   {
-       $value=0;
-       $s=0;
-       for ($i=0; $i < count($data); $i++) { 
-           for ($j=0; $j < count($data1); $j++) { 
-               
-               if ($data[$i]['nama']==$data1[$j]['nama']) {
-                   $value++;
-                }
-            }
-        }
-    $n = count($data);
-    $akurasi = (($value/$n)*100);
-    return $akurasi;
-    }
+  
    
 }

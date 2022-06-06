@@ -162,7 +162,7 @@
                         </div>
                         <div>
                             <label for="fisik"></label>
-                            <input class="form-control" name="xfisik" placeholder="Fisik" id="fisik" required>
+                            <input class="form-control" name="xfisik" placeholder="Fisik" id="fisik" required >
                         </div>
                         <div>
                             <label for="passing"></label>

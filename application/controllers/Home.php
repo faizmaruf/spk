@@ -3,13 +3,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Home extends CI_Controller
 {
-    private $filename = "import_data"; 
+   
     function __construct()
     {
-        parent::__construct();
-        // $this->load->library('session');
-        // $this->load->library('upload');
-      
+        parent::__construct();  
     }
 
     public function index()

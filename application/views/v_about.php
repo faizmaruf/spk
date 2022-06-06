@@ -32,14 +32,15 @@
                                     <p class="text-center">I'm a Coder</p>
                                 </div>
                                 <div class="w-50 h-100 m-auto d-flex flex-row pt-lg-3 justify-content-around">
-                                    <div class="my-2"><i class="fs-4 bi-instagram"></i></div>
+                                    <div class="my-2"><a href="https://www.instagram.com/faizmaruf_/"><i class="fs-4 bi-instagram"></i></a></div>
                                     <div class="my-2"><i class="fs-4 bi-twitter"></i></div>
-                                    <div class="my-2"><i class="fs-4 bi-github"></i></div>
+                                    <div class="my-2"><a href="https://github.com/faizmaruf"><i
+                                                class="fs-4 bi-github"></i></a></div>
                                     <div class="my-2"><i class="fs-4 bi-facebook"></i></div>
-                                    <div class="my-2"><i class="fs-4 bi-linkedin"></i></div>
+                                    <div class="my-2"><a href="https://www.linkedin.com/in/faiz-alauddin-ma-ruf-1292b71b0/"><i class="fs-4 bi-linkedin"></i></a></div>
                                 </div>
                                 <div class="w-100 h-100 m-auto d-flex pt-3 ">
-                                    <div class="btn m-auto"><a href="#" class="btn btn-cta rounded-pill">hire me</a>
+                                    <div class="btn m-auto"><a href="#" class="btn btn-cta rounded-pill">touch me</a>
                                     </div>
                                 </div>
 

@@ -65,6 +65,11 @@ img:hover {
 	position: relative;
 }
 
+.my-2 .fs-4 {
+	color: #181E4B;
+	z-index: 999 !important;
+	position: relative;
+}
 
 .btn-outline-primary,
 .btn-primary:hover {
