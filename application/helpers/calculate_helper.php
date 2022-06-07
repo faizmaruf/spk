@@ -51,3 +51,19 @@
     $akurasi = (($value/$n)*100);
     return $akurasi;
     }
+function convertArray($data)
+{
+      $array_lengthRow = count($data);
+    $array_lengthCol = count($data[0]);
+  
+        for ($i = 0; $i < $array_lengthRow; $i++) {
+            for ($j = 0; $j < $array_lengthCol; $j++) {
+                $p= (array_values($data[$i]));
+                $y[$i][$j] = ($p[$j]);
+		    } 
+        }
+        
+        // var_dump($y);
+        // die;
+        return $y;
+}

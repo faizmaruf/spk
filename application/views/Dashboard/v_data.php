@@ -154,39 +154,39 @@
                         </div>
                         <div>
                             <label for="posisi"></label>
-                            <div class="form-control">
-                                <input type="radio" name="xposisi" id="posisi" value="Flank" required>Flank
-                                <input type="radio" name="xposisi" id="posisi" value="Pivot" required>Pivot
-                                <input type="radio" name="xposisi" id="posisi" value="Anchor" required>Anchor
+                            <div class="form-control form-check">
+                                <input type="radio" class="form-check-label" name="xposisi" id="posisi" value="Flank" required> Flank
+                                <input type="radio" class="form-check-label" name="xposisi" id="posisi" value="Pivot" required> Pivot
+                                <input type="radio" class="form-check-label" name="xposisi" id="posisi" value="Anchor" required> Anchor
                             </div>
                         </div>
                         <div>
                             <label for="fisik"></label>
-                            <input class="form-control" name="xfisik" placeholder="Fisik" id="fisik" required >
+                            <input type="number" class="form-control" name="xfisik" placeholder="Fisik" id="fisik" required min="1" max="10" >
                         </div>
                         <div>
                             <label for="passing"></label>
-                            <input class="form-control" name="xpassing" placeholder="Passing" id="passing" required>
+                            <input type="number" class="form-control" name="xpassing" placeholder="Passing" id="passing" required min="1" max="10">
                         </div>
 
                         <div>
                             <label for="dribbling"></label>
-                            <input class="form-control" name="xdribbling" placeholder="Dribbling" id="dribbling" required>
+                            <input type="number" class="form-control" name="xdribbling" placeholder="Dribbling" id="dribbling" required min="1" max="10">
                         </div>
 
                         <div>
                             <label for="shooting"></label>
-                            <input class="form-control" name="xshooting" placeholder="Shooting" id="shooting" required>
+                            <input type="number" class="form-control" name="xshooting" placeholder="Shooting" id="shooting" required min="1" max="10">
                         </div>
 
                         <div>
                             <label for="heading"></label>
-                            <input class="form-control" name="xheading" placeholder="Heading" id="heading" required>
+                            <input type="number" class="form-control" name="xheading" placeholder="Heading" id="heading" required min="1" max="10">
                         </div>
 
                         <div>
                             <label for="kognitif"></label>
-                            <input class="form-control" name="xkognitif" placeholder="Kognitif" id="kognitif" required>
+                            <input type="number" class="form-control" name="xkognitif" placeholder="Kognitif" id="kognitif" required  min="1" max="10">
                         </div>
 
                 </div>
@@ -220,51 +220,51 @@
                         <div>
                             <label for="nama"></label>
                             <input class="form-control nama" name="xname" placeholder="Nama Lengkap" id="nama" required>
+                            <input class="id" type="hidden" name="xid" id="id">
                         </div>
                         <div>
                             <label for="posisi"></label>
-                            <div class="form-control posisi">
-                                <input type="radio" class="posisi" name="xposisi" id="posisi" value="Flank" required>Flank
-                                <input type="radio" class="posisi" name="xposisi" id="posisi" value="Pivot" required>Pivot
-                                <input type="radio" class="posisi" name="xposisi" id="posisi" value="Anchor" required>Anchor
+                            <div class="form-control posisi form-check">
+                                <input type="radio" class="form-check-label" class="posisi" name="xposisi" id="posisi" value="Flank" required> Flank
+                                <input type="radio" class="form-check-label" class="posisi" name="xposisi" id="posisi" value="Pivot" required> Pivot
+                                <input type="radio" class="form-check-label" class="posisi" name="xposisi" id="posisi" value="Anchor" required> Anchor
                             </div>
                         </div>
                         <div>
                             <label for="fisik"></label>
-                            <input class="form-control fisik" name="xfisik" placeholder="Fisik" id="fisik" required>
+                            <input type="number" class="form-control fisik" name="xfisik" placeholder="Fisik" id="fisik" required min="0" max="10">
                         </div>
                         <div>
                             <label for="passing"></label>
-                            <input class="form-control passing" name="xpassing" placeholder="Passing" id="passing" required>
+                            <input type="number" class="form-control passing" name="xpassing" placeholder="Passing" id="passing" required min="0" max="10">
                         </div>
 
                         <div>
                             <label for="dribbling"></label>
-                            <input class="form-control dribbling" name="xdribbling" placeholder="Dribbling" id="dribbling" required>
+                            <input type="number" class="form-control dribbling" name="xdribbling" placeholder="Dribbling" id="dribbling" required min="0" max="10">
                         </div>
 
                         <div>
                             <label for="shooting"></label>
-                            <input class="form-control shooting" name="xshooting" placeholder="Shooting" id="shooting" required>
+                            <input type="number" class="form-control shooting" name="xshooting" placeholder="Shooting" id="shooting" required min="0" max="10">
                         </div>
 
                         <div>
                             <label for="heading"></label>
-                            <input class="form-control heading" name="xheading" placeholder="Heading" id="heading" required>
+                            <input type="number" class="form-control heading" name="xheading" placeholder="Heading" id="heading" required min="0" max="10">
                         </div>
 
                         <div>
                             <label for="kognitif"></label>
-                            <input class="form-control kognitif" name="xkognitif" placeholder="Kognitif" id="kognitif" required>
+                            <input type="number" class="form-control kognitif" name="xkognitif" placeholder="Kognitif" id="kognitif" required min="0" max="10">
                         </div>
 
                 </div>
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <input class="id" type="hidden" name="xid" id="id">
                     <button type="submit" class="btn btn-primary">Update</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" data-bs-dismiss="modal">Close</button>
                     </form>
                 </div>
 

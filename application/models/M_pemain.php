@@ -53,5 +53,10 @@ class M_pemain extends CI_Model
         $hsl = $this->db->query("SELECT * FROM pemainterpilih")->result_array();
         return $hsl;
     }
+ function getAllTblPerbandingan()
+    {
+        $hsl = $this->db->query("SELECT * FROM tblperbandingan")->result_array();
+        return $hsl;
+    }
     
 }

@@ -47,9 +47,9 @@
             echo "<form method='post' action='" . base_url("data/import") . "'>";
 
             // Buat sebuah div untuk alert validasi kosong
-            echo "<div style='color: red;' id='kosong'>
-		Semua data belum diisi, Ada <span id='jumlah_kosong'></span> data yang belum terisi semua.
-		</div>";
+        //     echo "<div style='color: red;' id='kosong'>
+		// Semua data belum diisi, Ada <span id='jumlah_kosong'></span> data yang belum terisi semua.
+		// </div>";
 
             echo "<table border='1' cellpadding='8'>
 		<tr>

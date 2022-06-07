@@ -26,8 +26,9 @@ class SPK extends CI_Controller
 
 
         //tabel perbandingan prioritas dari pelatih
-        $tblPerbandingan = $ahp->__construct();
-        
+        $array =$this->m_pemain->getAllTblPerbandingan();
+        $tblPerbandingan= convertArray($array);
+       
        
         $pembagi= _getSumCol($tblPerbandingan);
 

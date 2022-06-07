@@ -3,18 +3,7 @@
 // include(APPPATH.'/libraries/Calculate.php');
 class Ahp {
     
-    public function __construct(){
-       $tblPerbandiangan=[
-            [1.000,0.333,1.000,1.000,7.000,7.000],
-            [3.000,1.000,3.000,3.000,9.000,9.000],
-            [1.000,0.333,1.000,1.000,7.000,7.000],
-            [1.000,0.333,1.000,1.000,7.000,5.000],
-            [0.143,0.111,0.143,0.143,1.000,0.333],
-            [0.143,0.111,0.143,0.143,3.000,1.000],
-        ];
-        return $tblPerbandiangan;
-    }
-
+  
 
 
     public function NormalisasiAHP($data,$pembagi)
