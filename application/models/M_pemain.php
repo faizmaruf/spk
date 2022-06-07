@@ -18,6 +18,16 @@ class M_pemain extends CI_Model
         $hsl = $this->db->query("SELECT fisik,passing,dribbling,shooting,heading,kognitif FROM pemain")->result_array();
         return $hsl;
     }
+    function getAllDataPemainTerpilih()
+    {
+        $hsl = $this->db->query("SELECT * FROM pemainterpilih")->result_array();
+        return $hsl;
+    }
+    function getAllTblPerbandingan()
+    {
+        $hsl = $this->db->query("SELECT * FROM tblperbandingan")->result_array();
+        return $hsl;
+    }
     function add($data)
     {
         $this->db->insert('pemain', $data);
@@ -35,27 +45,17 @@ class M_pemain extends CI_Model
     {
         return $this->db->query("DELETE FROM pemain");
     }
-    public function insert_multiple($data)
+    public function insertMultiple($data)
 	{
 		$this->db->insert_batch('pemain', $data);
 	}
-    public function update_multiple($data)
+    public function updateMultiple($data)
 	{
 		$this->db->update_batch('pemain', $data, 'id');
 	}
     public function rank()
     {
         $hsl = $this->db->query("SELECT nama,preferensi FROM pemain ORDER BY preferensi DESC")->result_array();
-        return $hsl;
-    }
-    function getAllDataPemainTerpilih()
-    {
-        $hsl = $this->db->query("SELECT * FROM pemainterpilih")->result_array();
-        return $hsl;
-    }
- function getAllTblPerbandingan()
-    {
-        $hsl = $this->db->query("SELECT * FROM tblperbandingan")->result_array();
         return $hsl;
     }
     

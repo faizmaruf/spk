@@ -4,9 +4,7 @@
 class Ahp {
     
   
-
-
-    public function NormalisasiAHP($data,$pembagi)
+    public function normalisasiAhp($data,$pembagi)
     {
         $array_length = count($data);
          for ($row = 0; $row < $array_length; $row++) {
@@ -16,7 +14,7 @@ class Ahp {
         }
         return $p;
     }
-    public function weightValue($data)
+    public function weightValueAhp($data)
     {   
         $array_length = count($data);
         for ($i=0; $i < $array_length; $i++) { 
@@ -31,7 +29,7 @@ class Ahp {
         return $p;
     }
 
-    public function _chehkCosistency($data,$data1)    
+    public function chehkCosistencyAhp($data,$data1)    
     {
         // CI = (L-n)/(n-1) dan CR = CI/IR  . nilai IR n =6 adalah 1,24
         $array_length = count($data);

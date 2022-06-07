@@ -1,10 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 
-class TOPSIS{
+class Topsis{
 
 
-    public function _normalisasiData($data)
+    public function normalisasiTopsis($data)
     {
         $array_lengthRow = count($data);
         $array_lengthCol = count($data[0]);
@@ -17,9 +17,7 @@ class TOPSIS{
         }
         $sigma=_getSumCol($Xij2);
         $akarsigma = $this->_akarSigma($sigma);
-        // var_dump($akarsigma);
-        // die;
-        return $this->_normaliasiTopsis($data,$akarsigma);
+        return $this->_dividerTopsis($data,$akarsigma);
  
     } 
     private function _akarSigma($data)
@@ -30,7 +28,7 @@ class TOPSIS{
         }
        return $p;
     }
-    private function _normaliasiTopsis($data,$akarsigma)
+    private function _dividerTopsis($data,$akarsigma)
     {   
         $array_lengthRow = count($data);
         $array_lengthCol = count($data[0]);
@@ -44,7 +42,7 @@ class TOPSIS{
        return $Rij;
     }
 
-    public function _normalisasiDataTerbobot($rij,$W)
+    public function normalisasiTerbobotTopsis($rij,$W)
     {
         $array_lengthRow = count($rij);
         $array_lengthCol = count($rij[0]);
@@ -60,7 +58,7 @@ class TOPSIS{
     }
 
 
-    public function _findMax($data)
+    public function findMax($data)
     {
         $array_lengthRow = count($data);
         $array_lengthCol = count($data[0]);
@@ -83,7 +81,7 @@ class TOPSIS{
         
         return $p;
     }
-    public function _findMin($data)
+    public function findMin($data)
     {
         $array_lengthRow = count($data);
         $array_lengthCol = count($data[0]);
@@ -106,7 +104,7 @@ class TOPSIS{
         
         return $p;
     }
-    public function _D($Y,$A)
+    public function distance($Y,$A)
     {   
         $array_lengthRow = count($Y);
         $array_lengthCol = count($Y[0]);
@@ -130,7 +128,7 @@ class TOPSIS{
 
         return $D;
     }
-    public function _preferenceValue($Dplus,$Dmin){
+    public function preferenceValue($Dplus,$Dmin){
         $array_lengthRow = count($Dplus);
         for ($i = 0; $i < $array_lengthRow; $i++) {
             $D[$i]=$Dmin[$i]/($Dmin[$i]+$Dplus[$i]);
@@ -146,11 +144,10 @@ class TOPSIS{
         
         $datapemain = [];
         $array_lengthRow = count($data);
-        $array_lengthCol = count($data[0]);
+     
         
      
         for ($i = 0; $i < $array_lengthRow; $i++) {
-            // for ($j = 0; $j < $array_lengthCol; $j++) {
                 $data1= (array_values($data[$i]));
 
                 $id = $data1[0]; 
@@ -165,9 +162,6 @@ class TOPSIS{
                 $preferensi = $data1[9]; 
 
 
-
-                
-            // } 
             array_push($datapemain, [
                 'id' => $id,
                 'nama' => $nama,
@@ -183,6 +177,8 @@ class TOPSIS{
         }
         return $datapemain; 
     }
+
+//kenapa dipanggil 2x datanya agar id nya masuk ke data
       private function _masukinDataPreferensi($data,$V)
     {
         $array_lengthRow = count($data);
@@ -196,8 +192,8 @@ class TOPSIS{
                 $data2[$i][$j]=$data1[$j];
 		    } 
         }
+       
       return $data2;
-        
     }
     
     

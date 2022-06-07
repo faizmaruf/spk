@@ -178,7 +178,7 @@ class Data extends CI_Controller
         }
 
         
-        $this->m_pemain->insert_multiple($data);
+        $this->m_pemain->insertMultiple($data);
         redirect("data"); 
     }
 }

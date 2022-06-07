@@ -18,8 +18,6 @@ class SPK extends CI_Controller
         
         $ahp = new $this->ahp;
         $topsis = new $this->topsis;
-      
-
 
         ///////////////////Metode AHP
         //sampai mendapatkan nilai bobot tiap variable
@@ -33,55 +31,59 @@ class SPK extends CI_Controller
         $pembagi= _getSumCol($tblPerbandingan);
 
         //nilai eigen/normalisasi
-        $normalisasi = $ahp->NormalisasiAHP($tblPerbandingan,$pembagi); 
+        $normalisasi = $ahp->normalisasiAhp($tblPerbandingan,$pembagi); 
        
 
         //nilai bobot = W
-        $nilaibobot = $ahp->weightValue($normalisasi); 
+        $nilaibobot = $ahp->weightValueAhp($normalisasi); 
         $W = $nilaibobot;
         $x['bobot']=$W;
         $x['tabledata'] = $this->m_pemain->getAll();
         //cek kosinsistensi
-        $cek=$ahp->_chehkCosistency($pembagi,$nilaibobot);
+        $cek=$ahp->chehkCosistencyAhp($pembagi,$nilaibobot);
         // $x['bobot'] = $this->load->view('Dashboard/History/v_bobot', $W);
+
+
 
          ///////////////////Metode Topsis
         //sampai mendapatkan nilai preferensi tiap alternatif
 
 
         //Data Pemain dinormalisasi terlebih dahulu
-        $rij=$topsis->_normalisasiData($data);
+        $rij=$topsis->normalisasiTopsis($data);
         $x['rij']=$rij;
-// var_dump($rij);
-// die;
+        // var_dump($rij);
+        // die;
 
         //data normalisasi terbobot yij = wj*rij
-        $y = $topsis->_normalisasiDataTerbobot($rij,$W);
+        $y = $topsis->normalisasiTerbobotTopsis($rij,$W);
         $x['y']=$y;
 
         //Mencari solusi ideal positive dan negative
-        $A_plus=$topsis->_findMax($y);
-        $A_minus=$topsis->_findMin($y);
+        $A_plus=$topsis->findMax($y);
+        $A_minus=$topsis->findMin($y);
         $x['A_plus']=$A_plus;
         $x['A_minus']=$A_minus;
 
 
         //Mencari D+ dan D- untuk Setiap Altenatif
-        $D_plus=$topsis->_D($y,$A_plus);
-        $D_minus=$topsis->_D($y,$A_minus);
+        $D_plus=$topsis->distance($y,$A_plus);
+        $D_minus=$topsis->distance($y,$A_minus);
         $x['D_plus']=$D_plus;
         $x['D_minus']=$D_minus;
 
        
 
         //menghitung nilai preferensi tiap alternatif 
-        $V = $topsis->_preferenceValue($D_plus,$D_minus);
+        $V = $topsis->preferenceValue($D_plus,$D_minus);
 
         //perangkingan
         $z['data'] = $this->m_pemain->getAll();
         $datapemain=$topsis->_preferensi($z['data'],$V);
-        
-        $this->m_pemain->update_multiple($datapemain);
+        // var_dump($datapemain);
+        // die;
+        //nilai preferensi dimasukan ke database
+        $this->m_pemain->updateMultiple($datapemain);
         
         $A['data'] = $this->m_pemain->rank();
         $datapemainrangking = $A['data'];
