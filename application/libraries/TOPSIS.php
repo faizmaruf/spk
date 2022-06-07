@@ -3,9 +3,6 @@
 
 class TOPSIS{
 
-//    function __construct(){
-        
-//     }
 
     public function _normalisasiData($data)
     {
