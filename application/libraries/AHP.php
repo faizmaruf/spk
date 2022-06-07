@@ -1,6 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-// include(APPPATH.'/libraries/Calculate.php');
 class Ahp {
     
   
@@ -29,7 +28,7 @@ class Ahp {
         return $p;
     }
 
-    public function chehkCosistencyAhp($data,$data1)    
+    public function checkConsistencyAhp($data,$data1)    
     {
         // CI = (L-n)/(n-1) dan CR = CI/IR  . nilai IR n =6 adalah 1,24
         $array_length = count($data);

@@ -137,7 +137,7 @@ class Topsis{
         return $D;
     }
     
-     public function _preferensi($datapemainfutsal,$V)
+     public function perangkinganData($datapemainfutsal,$V)
     {
         
         $data=$this->_masukinDataPreferensi($datapemainfutsal,$V);

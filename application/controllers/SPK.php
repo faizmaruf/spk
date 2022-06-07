@@ -40,7 +40,7 @@ class SPK extends CI_Controller
         $x['bobot']=$W;
         $x['tabledata'] = $this->m_pemain->getAll();
         //cek kosinsistensi
-        $cek=$ahp->chehkCosistencyAhp($pembagi,$nilaibobot);
+        $cek=$ahp->checkConsistencyAhp($pembagi,$nilaibobot);
         // $x['bobot'] = $this->load->view('Dashboard/History/v_bobot', $W);
 
 
@@ -79,7 +79,7 @@ class SPK extends CI_Controller
 
         //perangkingan
         $z['data'] = $this->m_pemain->getAll();
-        $datapemain=$topsis->_preferensi($z['data'],$V);
+        $datapemain=$topsis->perangkinganData($z['data'],$V);
         // var_dump($datapemain);
         // die;
         //nilai preferensi dimasukan ke database
