@@ -15,6 +15,7 @@ class SPK extends CI_Controller
         $x['nama'] = $this->m_pemain->getAllName();
         $x['data'] = $this->m_pemain->getAllValue();
         $x['tabledata'] = $this->m_pemain->getAll();
+        $z['data'] = $this->m_pemain->getAll();
         $data=$x['data'];
         
         $ahp = new $this->ahp;
@@ -79,10 +80,9 @@ class SPK extends CI_Controller
         $V = $topsis->preferenceValue($D_plus,$D_minus);
 
         //perangkingan
-        $z['data'] = $this->m_pemain->getAll();
+        
         $datapemain=$topsis->perangkinganData($z['data'],$V);
-        // var_dump($datapemain);
-        // die;
+       
         //nilai preferensi dimasukan ke database
         $this->m_pemain->updateMultiple($datapemain);
         
