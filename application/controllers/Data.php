@@ -182,3 +182,5 @@ class Data extends CI_Controller
         redirect("data"); 
     }
 }
+
+// attalaq a

@@ -14,6 +14,7 @@ class SPK extends CI_Controller
     {   
         $x['nama'] = $this->m_pemain->getAllName();
         $x['data'] = $this->m_pemain->getAllValue();
+        $x['tabledata'] = $this->m_pemain->getAll();
         $data=$x['data'];
         
         $ahp = new $this->ahp;
@@ -38,7 +39,7 @@ class SPK extends CI_Controller
         $nilaibobot = $ahp->weightValueAhp($normalisasi); 
         $W = $nilaibobot;
         $x['bobot']=$W;
-        $x['tabledata'] = $this->m_pemain->getAll();
+        
         //cek kosinsistensi
         $cek=$ahp->checkConsistencyAhp($pembagi,$nilaibobot);
         // $x['bobot'] = $this->load->view('Dashboard/History/v_bobot', $W);

@@ -36,6 +36,9 @@
        
         return $p;
     }
+
+
+
     function nilaiAkurasi($data,$data1){
        $value=0;
        $s=0;
@@ -51,6 +54,8 @@
     $akurasi = (($value/$n)*100);
     return $akurasi;
     }
+
+
 function convertArray($data)
 {
       $array_lengthRow = count($data);

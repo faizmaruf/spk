@@ -11,7 +11,6 @@ class Index extends CI_Controller
 
     public function index()
     {
-        
         $this->load->view('v_landingpage');
     }
     public function about()
