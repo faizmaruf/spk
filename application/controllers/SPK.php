@@ -80,7 +80,6 @@ class SPK extends CI_Controller
         $V = $topsis->preferenceValue($D_plus,$D_minus);
 
         //perangkingan
-        
         $datapemain=$topsis->perangkinganData($z['data'],$V);
        
         //nilai preferensi dimasukan ke database
