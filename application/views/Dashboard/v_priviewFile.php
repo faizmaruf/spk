@@ -155,10 +155,10 @@
                 </script>
         <?php
 
-            } else { // Jika semua data sudah diisi
+            } else { 
                 echo "<hr>";
 
-                // Buat sebuah tombol untuk mengimport data ke database
+              
                 echo "<button type='submit' name='import' class='btn btn-primary'>Import</button> ";
                 echo "<a href='" . base_url("data") . "' class='btn btn-danger'>Cancel</a>";
             }
