@@ -44,7 +44,7 @@ class SPK extends CI_Controller
         //cek kosinsistensi
         $cek=$ahp->checkConsistencyAhp($pembagi,$nilaibobot);
         // $x['bobot'] = $this->load->view('Dashboard/History/v_bobot', $W);
-
+        
 
 
          ///////////////////Metode Topsis

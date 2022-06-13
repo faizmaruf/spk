@@ -53,7 +53,7 @@
                     <div class="col-xl-1 col-md-2 mb-2">
                             <div class="btn d-flex">
                                 <a href="<?= site_url('Data/DeleteAll')?>" type="a" class="btn btn-danger btn-sm bg-danger"><i
-                                            class="fs-4 bi-trash"></i>Semua</a>
+                                            class="fs-4 bi-trash"></i>Reset</a>
                             </div>
                     </div>
                 </div>
