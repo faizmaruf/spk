@@ -18,7 +18,7 @@ class SPK extends CI_Controller
         $z['data'] = $this->m_pemain->getAll();
         $data=$x['data'];
         if (count($data)<2) {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger d-flex justify-content-center" role="alert" >Masukan Data Kembali, Minimal 2 Data !!!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-danger d-flex justify-content-center" role="alert" >Masukan Data Kembali, Minimal 2 Data Untuk Melakukan Perangkingan!!!</div>');
             redirect ('data');
         }
         
