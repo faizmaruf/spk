@@ -101,21 +101,19 @@
                                                     <div class="row no-gutters align-items-center">
                                                         <div class="col-auto">
                                                             <div class="h5 mb-0 mr-3 font-weight-bold text-secondary">
-                                                                <?= round(($akurasi),6); ?> %</div>
+                                                                <?= round(($akurasi),2); ?> %</div>
                                                         </div>
                                                         <div class="col">
                                                             <div class="progress progress-sm mr-2">
                                                                 <div class="progress-bar bg-secondary-bar"
-                                                                    role="progressbar" style="width: 69%"
+                                                                    role="progressbar" style="width: <?= round(($akurasi),2); ?>"
                                                                     aria-valuenow="50" aria-valuemin="0"
                                                                     aria-valuemax="100"></div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-auto">
-                                                    <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
