@@ -125,7 +125,7 @@
 
                     </div>
 
-
+ <?= $this->session->flashdata('message'); ?>
 
                 </div>
                 <!-- /.container-fluid -->
