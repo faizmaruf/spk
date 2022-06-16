@@ -22,12 +22,10 @@ class SPK extends CI_Controller
             redirect ('data');
         }
         
-        $ahp = new $this->ahp;
-        $topsis = new $this->topsis;
-
+    
         ///////////////////Metode AHP
         //sampai mendapatkan nilai bobot tiap variable
-
+        $ahp = new $this->ahp;
 
         //tabel perbandingan prioritas dari pelatih
         $array =$this->m_pemain->getAllTblPerbandingan();
@@ -38,7 +36,8 @@ class SPK extends CI_Controller
 
         //nilai eigen/normalisasi
         $normalisasi = $ahp->normalisasiAhp($tblPerbandingan,$pembagi); 
-       
+        // var_dump($normalisasi);
+        // die;
 
         //nilai bobot = W
         $nilaibobot = $ahp->weightValueAhp($normalisasi); 
@@ -53,7 +52,7 @@ class SPK extends CI_Controller
 
          ///////////////////Metode Topsis
         //sampai mendapatkan nilai preferensi tiap alternatif
-
+        $topsis = new $this->topsis;
 
         //Data Pemain dinormalisasi terlebih dahulu
         $rij=$topsis->normalisasiTopsis($data);

@@ -13,6 +13,7 @@ class Ahp {
         }
         return $p;
     }
+
     public function weightValueAhp($data)
     {   
         $array_length = count($data);
