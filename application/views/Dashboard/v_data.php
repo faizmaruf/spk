@@ -139,13 +139,13 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Modal Heading</h4>
+                    <h4 class="modal-title">Data Pemain</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                    Modal body..
+                    Tambah Data
                     <!-- coding disini -->
                     <form action="<?= site_url('Data/Add'); ?>" method="post" enctype="multipart/form-data">
                         <div>
@@ -208,13 +208,13 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Modal Heading</h4>
+                    <h4 class="modal-title">Data Pemain</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                    Modal body..
+                    Edit Data
                     <!-- coding disini -->
                     <form action="<?= site_url('Data/Update'); ?>" method="post" enctype="multipart/form-data">
                         <div>
