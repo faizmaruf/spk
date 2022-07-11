@@ -211,14 +211,14 @@
                     <?php $this->load->view('Dashboard/History/v_tabledata',$tabledata); ?>
                     
                     
-                    <!-- Content Row 2. MENORMALISASI TABEL -->
+                    <!-- Content Row 2. Menormalisasi Tabel -->
                     <?php $this->load->view('Dashboard/History/v_tablenormalization',$rij); ?>
                     
 
                     <!-- Content Row 3. Menghitung Matiks Keputusan ternormalisasi dan Terbobot -->
                     <?php $this->load->view('Dashboard/History/v_normalisasiterbobot',$y); ?>
 
-                    <!-- Content Row 4. MENCARI SOLUSI IDEAL POSITIF DAN NEGATIF -->
+                    <!-- Content Row 4. Mencari Solusi Ideal Positif dan Solusi Ideal Negatif -->
                     <?php $this->load->view('Dashboard/History/v_solusiidealnilai',$A_plus,$A_minus); ?>
                     
 
