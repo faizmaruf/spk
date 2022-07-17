@@ -12,6 +12,7 @@ class Home extends CI_Controller
     public function index()
     {
         $x['data'] = $this->m_pemain->getAll();
+        $x['tblperbandingan'] = $this->m_pemain->getAllTblPerbandingan();
         $this->load->view('Dashboard/v_home', $x);
     }
 }

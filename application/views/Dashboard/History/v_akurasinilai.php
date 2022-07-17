@@ -6,7 +6,7 @@
                                 <!-- Table Header - -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">MENCARI NILAI AKURASI DARI METODE AHP
+                                    <h6 class="m-0 font-weight-bold text-primary">HASIL PERANGKINGAN DARI METODE AHP
                                         DAN TOPSIS
                                     </h6>
                                 </div>
@@ -80,14 +80,19 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Rumus dan Hasil</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">RUMUS DAN HASIL AKURASI</h6>
 
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    <div class="d-flex">
+                                    <div class="d-flex flex-column">
                                         <div class="m-auto h-100 w-100">
                                             akurasi = (v/n)*100</div>
+                                        <div class="m-auto h-100 w-100">
+                                            <?php   var_dump($v);
+        var_dump($n);
+        die; ?>
+                                            akurasi = (<?= ($v); ?>/<?= ($n); ?>)*100</div>
                                     </div>
                                     <div class="mt-4 text-center small">
                                         <div class="card-body">

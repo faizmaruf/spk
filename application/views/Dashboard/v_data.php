@@ -139,15 +139,59 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Data Pemain</h4>
+                    <h4 class="modal-title">Tambah Data</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                    Tambah Data
+                    Keterangan Skala 
+                    <div class="blocks my-4 ">
+                <ul>
+                  <li>
+                    <span>1</span>
+                    <span class="tooltip-text">sangat buruk</span>
+                  </li>
+                  <li>
+                    <span>2</span>
+                    <span class="tooltip-text">buruk</span>
+                  </li>
+                  <li>
+                    <span>3</span>
+                    <span class="tooltip-text">sedikit buruk</span>
+                  </li>
+                  <li>
+                    <span>4</span>
+                    <span class="tooltip-text">sedikit lebih buruk</span>
+                  </li>
+                  <li>
+                    <span>5</span>
+                    <span class="tooltip-text">standar</span>
+                  </li>
+                  <li>
+                    <span>6</span>
+                    <span class="tooltip-text">sedikit lebih baik</span>
+                  </li>
+                  <li>
+                    <span>7</span>
+                    <span class="tooltip-text">sedikit baik</span>
+                  </li>
+                  <li>
+                    <span>8</span>
+                    <span class="tooltip-text">baik</span>
+                  </li>
+                  <li>
+                    <span>9</span>
+                    <span class="tooltip-text">sangat baik</span>
+                  </li>
+                  <li>
+                    <span>10</span>
+                    <span class="tooltip-text">sempurna</span>
+                  </li>
+                </ul>
+              </div>
                     <!-- coding disini -->
-                    <form action="<?= site_url('Data/Add'); ?>" method="post" enctype="multipart/form-data">
+                    <form action="<?= site_url('Data/Add'); ?>" method="post" enctype="multipart/form-data" class="mt-5">
                         <div>
                             <label for="nama"></label>
                             <input class="form-control" name="xname" placeholder="Nama Lengkap" id="nama" required>
@@ -162,7 +206,7 @@
                         </div>
                         <div>
                             <label for="fisik"></label>
-                            <input type="number" class="form-control" name="xfisik" placeholder="Fisik" id="fisik" required min="1" max="10" >
+                            <input type="number" class="form-control" name="xfisik" placeholder="Fisik" id="fisik" required min="1" max="10" data-bs-toggle="tooltip" data-bs-placement="bottom" title="isi rentang 1 - 10" >
                         </div>
                         <div>
                             <label for="passing"></label>
@@ -188,6 +232,7 @@
                             <label for="kognitif"></label>
                             <input type="number" class="form-control" name="xkognitif" placeholder="Kognitif" id="kognitif" required  min="1" max="10">
                         </div>
+
 
                 </div>
 
@@ -232,31 +277,31 @@
                         </div>
                         <div>
                             <label for="fisik"></label>
-                            <input type="number" class="form-control fisik" name="xfisik" placeholder="Fisik" id="fisik" required min="0" max="10">
+                            <input type="number" class="form-control fisik" name="xfisik" placeholder="Fisik" id="fisik" required min="1" max="10">
                         </div>
                         <div>
                             <label for="passing"></label>
-                            <input type="number" class="form-control passing" name="xpassing" placeholder="Passing" id="passing" required min="0" max="10">
+                            <input type="number" class="form-control passing" name="xpassing" placeholder="Passing" id="passing" required min="1" max="10">
                         </div>
 
                         <div>
                             <label for="dribbling"></label>
-                            <input type="number" class="form-control dribbling" name="xdribbling" placeholder="Dribbling" id="dribbling" required min="0" max="10">
+                            <input type="number" class="form-control dribbling" name="xdribbling" placeholder="Dribbling" id="dribbling" required min="1" max="10">
                         </div>
 
                         <div>
                             <label for="shooting"></label>
-                            <input type="number" class="form-control shooting" name="xshooting" placeholder="Shooting" id="shooting" required min="0" max="10">
+                            <input type="number" class="form-control shooting" name="xshooting" placeholder="Shooting" id="shooting" required min="1" max="10">
                         </div>
 
                         <div>
                             <label for="heading"></label>
-                            <input type="number" class="form-control heading" name="xheading" placeholder="Heading" id="heading" required min="0" max="10">
+                            <input type="number" class="form-control heading" name="xheading" placeholder="Heading" id="heading" required min="1" max="10">
                         </div>
 
                         <div>
                             <label for="kognitif"></label>
-                            <input type="number" class="form-control kognitif" name="xkognitif" placeholder="Kognitif" id="kognitif" required min="0" max="10">
+                            <input type="number" class="form-control kognitif" name="xkognitif" placeholder="Kognitif" id="kognitif" required min="1" max="10">
                         </div>
 
                 </div>

@@ -39,18 +39,18 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Jumlah Pemain 36/44
+                                                Jumlah Pemain <?= count($data); ?>/44 
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
                                                     <div class="h5 mb-0  d-block font-weight-bold text-secondary">
-                                                        81%
+                                                        <?= round((count($data)/44),2)*100; ?> % 
                                                     </div>
                                                 </div>
                                                 <div class="col">
                                                     <div class="progress progress-sm mr-2">
                                                         <div class="progress-bar bg-secondary-bar" role="progressbar"
-                                                            style="width: 82%" aria-valuenow="50" aria-valuemin="0"
+                                                            style="width: <?= round((count($data)/44),2)*100; ?>%" aria-valuenow="50" aria-valuemin="0"
                                                             aria-valuemax="100"></div>
                                                     </div>
                                                 </div>
@@ -115,60 +115,39 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <?php $i = 0 ?>
+                                                <?php foreach ($tblperbandingan as $d) : ?>
+                                                <?php $i++; ?>
                                                 <tr>
-                                                    <th scope="row">Fisik</th>
-                                                    <td>1,000</td>
-                                                    <td>0,333</td>
-                                                    <td>1,000</td>
-                                                    <td>1,000</td>
-                                                    <td>7,000</td>
-                                                    <td>7,000</td>
+                                                    <?php switch ($i){  
+                                                        case 1:
+                                                            echo '<th scope="row">Fisik</th>';
+                                                            break;
+                                                        case 2:
+                                                            echo '<th scope="row">Passing</th>';
+                                                            break;
+                                                        case 3:
+                                                            echo '<th scope="row">Dribbling</th>';
+                                                            break;
+                                                        case 4:
+                                                            echo '<th scope="row">Shooting</th>';
+                                                            break;
+                                                        case 5:
+                                                            echo '<th scope="row">Heading</th>';
+                                                            break;
+                                                        case 6:
+                                                            echo '<th scope="row">Kognititf</th>';
+                                                            break;
+                                                    } ?>
+                                                    <td><?= $d["fisik"]; ?></td>
+                                                    <td><?= $d["passing"]; ?></td>
+                                                    <td><?= $d["dribbling"]; ?></td>
+                                                    <td><?= $d["shooting"]; ?></td>
+                                                    <td><?= $d["heading"]; ?></td>
+                                                    <td><?= $d["kognitif"]; ?></td>
+                                                    
                                                 </tr>
-                                                <tr>
-                                                    <th scope="row">Passing</th>
-                                                    <td>3,000</td>
-                                                    <td>1,000</td>
-                                                    <td>3,000</td>
-                                                    <td>3,000</td>
-                                                    <td>9,000</td>
-                                                    <td>9,000</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Dribbling</th>
-                                                    <td>1,000</td>
-                                                    <td>0,333</td>
-                                                    <td>1,000</td>
-                                                    <td>1,000</td>
-                                                    <td>7,000</td>
-                                                    <td>7,000</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Shooting</th>
-                                                    <td>1,000</td>
-                                                    <td>0,333</td>
-                                                    <td>1,000</td>
-                                                    <td>1,000</td>
-                                                    <td>7,000</td>
-                                                    <td>5,000</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Heading</th>
-                                                    <td>0,143</td>
-                                                    <td>0,111</td>
-                                                    <td>0,143</td>
-                                                    <td>0,143</td>
-                                                    <td>0,100</td>
-                                                    <td>0,333</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Kognitif</th>
-                                                    <td>0,143</td>
-                                                    <td>0,111</td>
-                                                    <td>0,143</td>
-                                                    <td>0,200</td>
-                                                    <td>3,000</td>
-                                                    <td>1,000</td>
-                                                </tr>
+                                                <?php endforeach; ?>
                                             </tbody>
                                         </table>
                                     </div>

@@ -11,7 +11,8 @@ class SPK extends CI_Controller
     }
     
     public function index()
-    {   
+    {  
+        $x['tblperbandingan'] = $this->m_pemain->getAllTblPerbandingan();
         $x['nama'] = $this->m_pemain->getAllName();
         $x['data'] = $this->m_pemain->getAllValue();
         $x['tabledata'] = $this->m_pemain->getAll();
@@ -28,8 +29,8 @@ class SPK extends CI_Controller
         $ahp = new $this->ahp;
 
         //tabel perbandingan prioritas dari pelatih
-        $array =$this->m_pemain->getAllTblPerbandingan();
-        $tblPerbandingan= convertArray($array);
+        
+        $tblPerbandingan= convertArray($this->m_pemain->getAllTblPerbandingan());
        
        
         $pembagi= _getSumCol($tblPerbandingan);
@@ -101,10 +102,11 @@ class SPK extends CI_Controller
             array_pop($datapemainrangking);
         }
         $datapemainrangking14 = $datapemainrangking;
-        
+        $x['v']=count($datapemainterpilih);
+        $x['n']=count($datapemainrangking14);
         $x['akurasi']=nilaiAkurasi($datapemainrangking14,$datapemainterpilih);
         
-        
+      
         
         $this->load->view('Dashboard/v_spk', $x);
     }
