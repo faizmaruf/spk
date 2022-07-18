@@ -51,7 +51,7 @@
             }
         }
     $n = count($data);
-    $akurasi = (($value/$n)*100);
+    $akurasi = (($value/14)*100);
     return $akurasi;
     }
 

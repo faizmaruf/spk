@@ -102,12 +102,9 @@ class SPK extends CI_Controller
             array_pop($datapemainrangking);
         }
         $datapemainrangking14 = $datapemainrangking;
-        $x['v']=count($datapemainterpilih);
-        $x['n']=count($datapemainrangking14);
         $x['akurasi']=nilaiAkurasi($datapemainrangking14,$datapemainterpilih);
         
-      
-        
+
         $this->load->view('Dashboard/v_spk', $x);
     }
   

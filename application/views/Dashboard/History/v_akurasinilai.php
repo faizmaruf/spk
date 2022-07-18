@@ -88,11 +88,6 @@
                                     <div class="d-flex flex-column">
                                         <div class="m-auto h-100 w-100">
                                             akurasi = (v/n)*100</div>
-                                        <div class="m-auto h-100 w-100">
-                                            <?php   var_dump($v);
-        var_dump($n);
-        die; ?>
-                                            akurasi = (<?= ($v); ?>/<?= ($n); ?>)*100</div>
                                     </div>
                                     <div class="mt-4 text-center small">
                                         <div class="card-body">
@@ -111,7 +106,7 @@
                                                         <div class="col">
                                                             <div class="progress progress-sm mr-2">
                                                                 <div class="progress-bar bg-secondary-bar"
-                                                                    role="progressbar" style="width: <?= round(($akurasi),2); ?>"
+                                                                    role="progressbar" style="width: <?= round(($akurasi),2); ?>%"
                                                                     aria-valuenow="50" aria-valuemin="0"
                                                                     aria-valuemax="100"></div>
                                                             </div>
