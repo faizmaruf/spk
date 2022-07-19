@@ -253,13 +253,58 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Data Pemain</h4>
+                    <h4 class="modal-title"> Edit Data</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                    Edit Data
+                   
+                      Keterangan Skala 
+                    <div class="blocks my-4 ">
+                <ul>
+                  <li>
+                    <span>1</span>
+                    <span class="tooltip-text">sangat buruk</span>
+                  </li>
+                  <li>
+                    <span>2</span>
+                    <span class="tooltip-text">buruk</span>
+                  </li>
+                  <li>
+                    <span>3</span>
+                    <span class="tooltip-text">sedikit buruk</span>
+                  </li>
+                  <li>
+                    <span>4</span>
+                    <span class="tooltip-text">sedikit lebih buruk</span>
+                  </li>
+                  <li>
+                    <span>5</span>
+                    <span class="tooltip-text">standar</span>
+                  </li>
+                  <li>
+                    <span>6</span>
+                    <span class="tooltip-text">sedikit lebih baik</span>
+                  </li>
+                  <li>
+                    <span>7</span>
+                    <span class="tooltip-text">sedikit baik</span>
+                  </li>
+                  <li>
+                    <span>8</span>
+                    <span class="tooltip-text">baik</span>
+                  </li>
+                  <li>
+                    <span>9</span>
+                    <span class="tooltip-text">sangat baik</span>
+                  </li>
+                  <li>
+                    <span>10</span>
+                    <span class="tooltip-text">sempurna</span>
+                  </li>
+                </ul>
+              </div>
                     <!-- coding disini -->
                     <form action="<?= site_url('Data/Update'); ?>" method="post" enctype="multipart/form-data">
                         <div>
