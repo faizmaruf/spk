@@ -259,7 +259,6 @@
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                   
                       Keterangan Skala 
                     <div class="blocks my-4 ">
                 <ul>
@@ -306,7 +305,7 @@
                 </ul>
               </div>
                     <!-- coding disini -->
-                    <form action="<?= site_url('Data/Update'); ?>" method="post" enctype="multipart/form-data">
+                    <form action="<?= site_url('Data/Update'); ?>" method="post" enctype="multipart/form-data" class="mt-5">
                         <div>
                             <label for="nama"></label>
                             <input class="form-control nama" name="xname" placeholder="Nama Lengkap" id="nama" required>
