@@ -29,7 +29,6 @@ class SPK extends CI_Controller
         $ahp = new $this->ahp;
 
         //tabel perbandingan prioritas dari pelatih
-        
         $tblPerbandingan= convertArray($this->m_pemain->getAllTblPerbandingan());
        
        
@@ -37,8 +36,7 @@ class SPK extends CI_Controller
 
         //nilai eigen/normalisasi
         $normalisasi = $ahp->normalisasiAhp($tblPerbandingan,$pembagi); 
-        // var_dump($normalisasi);
-        // die;
+       
 
         //nilai bobot = W
         $nilaibobot = $ahp->weightValueAhp($normalisasi); 
@@ -47,9 +45,10 @@ class SPK extends CI_Controller
         
         //cek kosinsistensi
         $cek=$ahp->checkConsistencyAhp($pembagi,$nilaibobot);
-        // $x['bobot'] = $this->load->view('Dashboard/History/v_bobot', $W);
-        
-
+        if ($cek==false) {
+             $this->session->set_flashdata('message', '<div class="alert alert-danger d-flex justify-content-center" role="alert" >Terjadi Inkonsistensi Pada Tabel Perbandingan Prioritas, Silahkan Input Ulang Niliai Prioritas Kriteria!!!</div>');
+            redirect ('data');
+        }
 
          ///////////////////Metode Topsis
         //sampai mendapatkan nilai preferensi tiap alternatif

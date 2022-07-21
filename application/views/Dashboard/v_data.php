@@ -57,12 +57,12 @@
                             </div>
                     </div>
                 </div>
-
+                 <?= $this->session->flashdata('message'); ?>
                     <!-- Content Row -->
 
                     <div class="row">
 
-                        <!-- Area Chart -->
+                        <!-- Area  -->
                         <div class="col-xl-12 col-lg-12">
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
@@ -125,7 +125,7 @@
 
                     </div>
 
- <?= $this->session->flashdata('message'); ?>
+
 
                 </div>
                 <!-- /.container-fluid -->
