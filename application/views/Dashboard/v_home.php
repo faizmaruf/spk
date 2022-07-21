@@ -85,7 +85,7 @@
                             </div>
                         </div>
                     </div>
-
+                     <?= $this->session->flashdata('message'); ?>
                     <!-- Content Row -->
 
                     <div class="row">

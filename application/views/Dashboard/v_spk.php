@@ -164,7 +164,7 @@
                                     <!-- Card Header - Dropdown -->
                                     <div
                                         class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                        <h6 class="m-0 font-weight-bold text-primary">Penelitian</h6>
+                                        <h6 class="m-0 font-weight-bold text-primary">Rumus</h6>
 
                                     </div>
                                     <!-- Card Body -->
@@ -172,6 +172,26 @@
                                         <div class="d-flex">
                                             <div class="m-auto h-100 w-100 d-flex">
                                                 <img src="<?= base_url() ?>assets/images/rumus/Bobot.png" class="w-75 m-auto" alt=""></div>
+                                        </div>
+                                        <div class="mt-4 text-center small">
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card shadow mb-4">
+                                    <!-- Card Header - Dropdown -->
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">Consistency Ratio</h6>
+
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        <div class="d-flex">
+                                            <div class="m-auto h-100 w-100 d-flex">
+                                                CR < 1 , Maka Nilai Bobot Kriteria Dapat Diterima
+                                             </div>
                                         </div>
                                         <div class="mt-4 text-center small">
 

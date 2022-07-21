@@ -45,9 +45,9 @@ class SPK extends CI_Controller
         
         //cek kosinsistensi
         $cek=$ahp->checkConsistencyAhp($pembagi,$nilaibobot);
-        if ($cek==false) {
+        if ($cek==true) {
              $this->session->set_flashdata('message', '<div class="alert alert-danger d-flex justify-content-center" role="alert" >Terjadi Inkonsistensi Pada Tabel Perbandingan Prioritas, Silahkan Input Ulang Niliai Prioritas Kriteria!!!</div>');
-            redirect ('data');
+            redirect ('Home');
         }
 
          ///////////////////Metode Topsis
@@ -57,8 +57,7 @@ class SPK extends CI_Controller
         //Data Pemain dinormalisasi terlebih dahulu
         $rij=$topsis->normalisasiTopsis($data);
         $x['rij']=$rij;
-        // var_dump($rij);
-        // die;
+        
 
         //data normalisasi terbobot yij = wj*rij
         $y = $topsis->normalisasiTerbobotTopsis($rij,$W);
