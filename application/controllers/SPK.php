@@ -45,7 +45,7 @@ class SPK extends CI_Controller
         
         //cek kosinsistensi
         $cek=$ahp->checkConsistencyAhp($pembagi,$nilaibobot);
-        if ($cek==true) {
+        if ($cek==false) {
              $this->session->set_flashdata('message', '<div class="alert alert-danger d-flex justify-content-center" role="alert" >Terjadi Inkonsistensi Pada Tabel Perbandingan Prioritas, Silahkan Input Ulang Niliai Prioritas Kriteria!!!</div>');
             redirect ('Home');
         }

@@ -78,7 +78,7 @@
                                                 <tr>
                                                     <th scope="col">No</th>
                                                     <th scope="col">Nama</th>
-                                                    <th scope="col">Posisi</th>
+                                                    <!-- <th scope="col">Posisi</th> -->
                                                     <th scope="col">Fisik</th>
                                                     <th scope="col">Passing</th>
                                                     <th scope="col">Dribbling</th>
@@ -95,7 +95,7 @@
                                                 <tr>
                                                     <td><?= $i; ?></td>
                                                     <td><?= $d["nama"]; ?></td>
-                                                    <td><?= $d["posisi"]; ?></td>
+                                                    <!-- <td><?= $d["posisi"]; ?></td> -->
                                                     <td><?= $d["fisik"]; ?></td>
                                                     <td><?= $d["passing"]; ?></td>
                                                     <td><?= $d["dribbling"]; ?></td>
