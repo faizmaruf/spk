@@ -58,8 +58,8 @@
 
 function convertArray($data)
 {
-      $array_lengthRow = count($data);
-    $array_lengthCol = count($data[0]);
+        $array_lengthRow = count($data);
+        $array_lengthCol = count($data[0]);
   
         for ($i = 0; $i < $array_lengthRow; $i++) {
             for ($j = 0; $j < $array_lengthCol; $j++) {
@@ -67,8 +67,5 @@ function convertArray($data)
                 $y[$i][$j] = ($p[$j]);
 		    } 
         }
-        
-        // var_dump($y);
-        // die;
         return $y;
 }
